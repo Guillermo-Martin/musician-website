@@ -1,9 +1,36 @@
-// import Image from "next/image";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <div>
-      <h1>HOMEPAGE</h1>
+      <h1>Lorem ipsum</h1>
+
+      {/* Sidenav */}
+      <nav>
+        <ul>
+          <li>Pianist</li>
+          <li>Compositions</li>
+          <li>Ethnomusicology</li>
+          <li>Events</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+
+      <main>
+        {/* Image */}
+        <Image src="/images/placeholder-1.jpg" alt="Placeholder image" width={600} height={600} />
+
+        {/* Intro text and audio */}
+        <div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+          <audio controls src={null}></audio>
+        </div>
+      </main>
+      
+
+      {/* Image */}
+      {/* <a href="https://www.freepik.com/free-photo/handsome-hipster-male-with-beard-sunglasses-texting-messages-via-smartphone-blogging-social-networks-sharing-multimedia_9406922.htm#from_view=detail_alsolike">Image by svetlanasokolova on Freepik</a> */}
     </div>
 
 
