@@ -57,8 +57,49 @@ function Pianist() {
 
         {/* ----- Videos container ----- */}
         <div>
-          
+          <div>
+            <p>Video title</p>
+            <Image src="/images/placeholder-1.jpg" alt="Placeholer image" width={680} height={428} />
+          </div>
+          <div>
+            <p>Video title</p>
+            <Image src="/images/placeholder-1.jpg" alt="Placeholer image" width={680} height={428} />
+          </div>
+          <div>
+            <p>Video title</p>
+            <Image src="/images/placeholder-1.jpg" alt="Placeholer image" width={680} height={428} />
+          </div>
+          <div>
+            <p>Video title</p>
+            <Image src="/images/placeholder-1.jpg" alt="Placeholer image" width={680} height={428} />
+          </div>
         </div>
+      </div>
+
+      {/* ---------- CDs section ---------- */}
+      <div className="cd-section">
+        {/* ----- Text container ----- */}
+        <div>
+          <h2>CDs</h2>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas maxime accusantium ex eaque quaerat, et, hic tempora corporis eius libero neque sint tenetur excepturi quod, consequuntur nihil perferendis sapiente necessitatibus.</p>
+        </div>
+        
+        {/* ----- CD container ----- */}
+        <div>
+          {/* CD */}
+          <div>
+            <Image src="/images/placeholder-1.jpg" alt="Placeholer image" width={680} height={428} />
+            <h3>CD title</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas maxime accusantium ex eaque quaerat, et, hic tempora corporis eius libero neque sint tenetur excepturi quod, consequuntur nihil perferendis sapiente necessitatibus.</p>
+          </div>
+          {/* CD */}
+          <div>
+            <Image src="/images/placeholder-1.jpg" alt="Placeholer image" width={680} height={428} />
+            <h3>CD title</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas maxime accusantium ex eaque quaerat, et, hic tempora corporis eius libero neque sint tenetur excepturi quod, consequuntur nihil perferendis sapiente necessitatibus.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   );
