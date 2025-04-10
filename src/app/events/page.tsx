@@ -1,9 +1,15 @@
-function Events() {
-  return (
-    <div>
-      <h1>Events page</h1>
-    </div>
-  );
+import type { Metadata } from "next";
+import Events from "./Events";
+
+// ---------- Metadata ----------
+export const metadata: Metadata = {
+  title: "Events page",
+  description: "Events"
+}
+
+// ---------- Page ----------
+function EventsPage() {
+  return <Events />
 };
 
-export default Events;
+export default EventsPage;
