@@ -24,3 +24,15 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+h1 {
+  @apply text-red-700 text-8xl;
+}
+
+h2 {
+  @apply text-blue-500 text-7xl;
+}
+
+h3 {
+  @apply text-green-500 text-5xl;
+}
