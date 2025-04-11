@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -8,12 +9,12 @@ export default function Home() {
       {/* Sidenav */}
       <nav>
         <ul>
-          <li>Pianist</li>
-          <li>Compositions</li>
-          <li>Ethnomusicology</li>
-          <li>Events</li>
-          <li>About</li>
-          <li>Contact</li>
+          <li><Link href="/pianist">Pianist</Link></li>
+          <li><Link href="/compositions">Compositions</Link></li>
+          <li><Link href="/ethnomusicology">Ethnomusicology</Link></li>
+          <li><Link href="/events">Events</Link></li>
+          <li><Link href="/about">About</Link></li>
+          <li><Link href="/contact">Contact</Link></li>
         </ul>
       </nav>
 
