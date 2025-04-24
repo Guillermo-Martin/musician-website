@@ -3,7 +3,7 @@
  */
 
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import { render, screen, cleanup } from "@testing-library/react";
 import Hero from "@/components/Hero";
 
 describe("Hero", () => {
@@ -13,9 +13,8 @@ describe("Hero", () => {
     render(
       <Hero 
         pageTitle="This is the page title"
-        hasDescription={true}
         description="This is a short description about the page."
-        src="./images/placeholder-1.jpg"
+        src="/images/placeholder-1.jpg"
         alt="Placeholder image"
       />
     );
@@ -59,32 +58,29 @@ describe("Hero", () => {
     // * expect that the alt tag isn't empty
     expect(heroImage).toHaveAttribute("alt");
     expect(heroImage.getAttribute("alt")).not.toBe("");
-    });
+  });
 
-  // ---------- it should only display an image if "hasDescription is false" ----------
+  // ---------- it should only display an image if no description props is passed ----------
   it("Only renders a title and image, if there's no description", () => {
+    // remove the previous Hero component render
+    cleanup();
+
     // ----- Arrange -----
     render(
       <Hero 
         pageTitle="This is the page title"
-        hasDescription={false}
-        description="This is a short description about the page."
-        src="./images/placeholder-1.jpg"
+        description={false}
+        src="/images/placeholder-1.jpg"
         alt="Placeholder image"
       />
     );
 
     // ----- Action -----
     // get the page description
-    const pageDescription = screen.getByTestId("page-description");
+    const pageDescription = screen.queryByTestId("page-description");
 
     // ----- Assert -----
     // expect the description to not be rendered
     expect(pageDescription).not.toBeInTheDocument()
   });
 });
-
-// to dos
-// make sure to pass in props to the component
-// make sure that a string is passed in to the text elements and it's not empty
-// look up beforeEach()

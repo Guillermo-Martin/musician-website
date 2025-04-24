@@ -1,8 +1,11 @@
 import Image from "next/image";
+import Hero from "@/components/Hero";
 
 function About() {
   return (
     <div>
+      <Hero pageTitle="About page" description={false} src="/images/placeholder-1.jpg"  alt="some text" />
+
       {/* ---------- Hero section ---------- */}
       <div>
         <h1>About page</h1>
