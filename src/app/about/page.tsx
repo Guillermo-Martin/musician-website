@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import About from "./about";
+import About from "./About";
 
 // ---------- Metadata ----------
 export const metadata: Metadata = {
