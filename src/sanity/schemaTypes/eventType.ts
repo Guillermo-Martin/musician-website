@@ -1,6 +1,7 @@
 // ---------- EXAMPLE SCHEMA ----------
 import {defineField, defineType} from 'sanity';
 import {CalendarIcon} from '@sanity/icons';
+import {DoorsOpenInput} from './components/DoorsOpenInput'
 
 export const eventType = defineType({
   name: 'event',
@@ -47,6 +48,9 @@ export const eventType = defineType({
       initialValue: 60,
       description: 'Number of minutes before the start time for admission',
       group: ['details', 'editorial'],
+      components: {
+        input: DoorsOpenInput
+      },
     }),
     defineField({
       name: 'venue',
@@ -87,31 +91,31 @@ export const eventType = defineType({
     })
   ],
   // Update the preview key in the schema
-preview: {
-  select: {
-    name: 'name',
-    venue: 'venue.name',
-    artist: 'headline.name',
-    date: 'date',
-    image: 'image',
-  },
-  prepare({name, venue, artist, date, image}) {
-    const nameFormatted = name || 'Untitled event'
-    const dateFormatted = date
-      ? new Date(date).toLocaleDateString(undefined, {
-          month: 'short',
-          day: 'numeric',
-          year: 'numeric',
-          hour: 'numeric',
-          minute: 'numeric',
-        })
-      : 'No date'
+  preview: {
+    select: {
+      name: 'name',
+      venue: 'venue.name',
+      artist: 'headline.name',
+      date: 'date',
+      image: 'image',
+    },
+    prepare({name, venue, artist, date, image}) {
+      const nameFormatted = name || 'Untitled event'
+      const dateFormatted = date
+        ? new Date(date).toLocaleDateString(undefined, {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+          })
+        : 'No date'
 
-    return {
-      title: artist ? `${nameFormatted} (${artist})` : nameFormatted,
-      subtitle: venue ? `${dateFormatted} at ${venue}` : dateFormatted,
-      media: image || CalendarIcon,
-    }
+      return {
+        title: artist ? `${nameFormatted} (${artist})` : nameFormatted,
+        subtitle: venue ? `${dateFormatted} at ${venue}` : dateFormatted,
+        media: image || CalendarIcon,
+      }
+    },
   },
-},
 })
