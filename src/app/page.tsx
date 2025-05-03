@@ -3,6 +3,8 @@ import Link from "next/link";
 import { defineQuery } from "next-sanity";
 import { sanityFetch } from "@/sanity/lib/live";
 
+
+
 const EVENTS_QUERY = defineQuery(`*[
   _type == "event"
   && defined(slug.current)
