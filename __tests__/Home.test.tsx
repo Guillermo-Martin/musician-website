@@ -3,51 +3,57 @@
  */
 // wrong test environment error:  https://jestjs.io/docs/configuration#testenvironment-string
 
-import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
-import Page from '@/app/page'
-import { sanityFetch } from '@/sanity/lib/live';
+import "@testing-library/jest-dom";
+import { render, screen } from "@testing-library/react";
+import Page from "@/app/page";
+import { defineQuery } from "next-sanity";
+import { sanityFetch } from "@/sanity/lib/live";
 
 
 // ---------- MOCKS ----------
-// intercept the real module, replace it with our mock (fake version)
-jest.mock('@/sanity/lib/live', () => ({
+// intercept the real module (sanityFetch - for making requests to Sanity), replace it with our mock (fake version)
+jest.mock("@/sanity/lib/live", () => ({
   sanityFetch: jest.fn(),
 }));
 
 
 // describe(): used to group related tests together to form a test suite
 // takes 2 arguments: string to describe the test suite and function that contains the tests
-describe('Homepage', () => {
-  // it() or test(): used to define an individual test
-  it('renders a heading', () => {
-    // arrange: set up the environment to be tested
-    render(<Page />)
- 
-    // action: perform the action to be tested
-    const heading = screen.getByRole('heading', { level: 1 })
- 
-    // assert: check the result of the action; make sure the thing did what it's supposed to do
-    expect(heading).toBeInTheDocument()
-  });
+describe("Homepage", () => {
+  // ---------- Sanity data fetching ----------
+  describe("Unit test: sanityFetch", () => {
+    // define GROQ query for Sanity
+    const HOMEPAGE_QUERY = defineQuery(`*[_type == "homepage"]{audio {asset -> {url}}, heading, image {asset -> {url}}, short_description}`);
+    
+    it("fetches homepage data correctly", async () => {
+      // arrange: return fake data when an API request is made using sanityFetch
+      (sanityFetch as jest.Mock).mockResolvedValue({
+        data: [
+          { 
+            audio: {
+              asset: {
+                url: "https://www.google.com/"
+              }
+            },
+            heading: "Test Homepage Title",
+            image: {
+              asset: {
+                url: "https://unsplash.com/"
+              }
+            },
+            short_description: "Test short description"
+          },
+        ],
+      });
 
-  // -------------------------------------------------------------
-  // it should successfully retrieve homepage data from Sanity
-  it("Fetches homepage data from Sanity successfully", async () => {
-    // arrange
-    // * fake the API request to Sanity and tell return fake data
-    (sanityFetch as jest.Mock).mockResolvedValue({
-      heading: "Homepage title"
+      // action: make an API request using sanityFetch and get back the data
+      const { data } = await sanityFetch({ query: HOMEPAGE_QUERY });
+
+      // assert: expect that the heading is from the fake data
+      expect(data[0].audio.asset.url).toBe("https://www.google.com/");
+      expect(data[0].heading).toBe("Test Homepage Title");
+      expect(data[0].image.asset.url).toBe("https://unsplash.com/");
+      expect(data[0].short_description).toBe("Test short description");
     });
-
-    // * render the homepage
-    render(<Page />);
-
-    // action
-    // * get the heading
-    const heading = await screen.findByText('Homepage title');
-
-    // assert
-    expect(heading).toBeInTheDocument();
   });
-})
+});

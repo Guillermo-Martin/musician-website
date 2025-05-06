@@ -54,18 +54,22 @@ import { defineQuery } from "next-sanity";
 import { sanityFetch } from "@/sanity/lib/live";
 
 // Query to get homepage information
-const HOMEPAGE_QUERY = defineQuery(`*[_type == "homepage"]{heading}`);
+// how to get url for assets uploaded to Sanity:  https://stackoverflow.com/questions/74935677/how-to-show-my-image-from-sanity-to-react-app
+const HOMEPAGE_QUERY = defineQuery("*[_type == 'homepage']{audio {asset -> {url}}, heading, image {asset -> {url}}, short_description}");
 
 export default async function Home() {
 // export default function Home() {
   // query sanity and get data
-  const data = await sanityFetch({query: HOMEPAGE_QUERY});
+  const { data } = await sanityFetch({query: HOMEPAGE_QUERY});
 
-  // console.log(data.data[0].heading);
+  // data
+  console.log("here is the homepage data:", data);
+  console.log(data[0].image.asset.url);
+  console.log(data[0].audio.asset.url);
 
   return (
     <div>
-      <h1>{data.data[0].heading}</h1>
+      <h1>{data[0].heading}</h1>
 
       {/* Sidenav */}
       <nav>
