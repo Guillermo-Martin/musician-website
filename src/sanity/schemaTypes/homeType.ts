@@ -15,7 +15,13 @@ export const homeType = defineType({
     }),
     defineField({
       name: "image",
-      type: "image"
+      type: "image",
+      fields: [
+        {
+          name: "alt_text",
+          type: "string"
+        }
+      ]
     }),
     defineField({
       name: "audio",
@@ -26,4 +32,6 @@ export const homeType = defineType({
       }
     }),
   ],
-})
+});
+
+// adding alt text for images:  https://www.sanity.io/answers/best-practice-for-specifying-alt-text-for-images-in-block-text-using-sanity
