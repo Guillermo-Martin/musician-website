@@ -1,41 +1,46 @@
 // --------------------- SANITY EXAMPLE -----------------------
-import Link from "next/link";
-import { defineQuery } from "next-sanity";
-import { sanityFetch } from "@/sanity/lib/live";
+// import Link from "next/link";
+// import { defineQuery } from "next-sanity";
+// import { sanityFetch } from "@/sanity/lib/live";
 
 
 
-const EVENTS_QUERY = defineQuery(`*[
-  _type == "event"
-  && defined(slug.current)
-]{_id, name, slug, date}|order(date desc)`);
+// const EVENTS_QUERY = defineQuery(`*[
+//   _type == "event"
+//   && defined(slug.current)
+// ]{_id, name, slug, date}|order(date desc)`);
 
-export default async function IndexPage() {
-  const { data: events } = await sanityFetch({ query: EVENTS_QUERY });
+// // console.log("Here is your query:", EVENTS_QUERY);
 
-  return (
-    <main className="flex bg-gray-100 min-h-screen flex-col p-24 gap-12">
-      <h1 className="text-4xl font-bold tracking-tighter">Events</h1>
-      <ul className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-        {events.map((event) => (
-          <li className="bg-white p-4 rounded-lg" key={event._id}>
-            <Link
-              className="hover:underline"
-              href={`/event/${event?.slug?.current}`}
-            >
-              <h2 className="text-xl font-semibold">{event?.name}</h2>
-              {event?.date && (
-                <p className="text-gray-500">
-                  {new Date(event.date).toLocaleDateString()}
-                </p>
-              )}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </main>
-  );
-}
+// export default async function IndexPage() {
+//   const { data: events } = await sanityFetch({ query: EVENTS_QUERY });
+
+//   const testing = await sanityFetch({ query: EVENTS_QUERY });
+//   console.log("here is the data from the query:", testing);
+
+//   return (
+//     <main className="flex bg-gray-100 min-h-screen flex-col p-24 gap-12">
+//       <h1 className="text-4xl font-bold tracking-tighter">Events</h1>
+//       <ul className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+//         {events.map((event) => (
+//           <li className="bg-white p-4 rounded-lg" key={event._id}>
+//             <Link
+//               className="hover:underline"
+//               href={`/event/${event?.slug?.current}`}
+//             >
+//               <h2 className="text-xl font-semibold">{event?.name}</h2>
+//               {event?.date && (
+//                 <p className="text-gray-500">
+//                   {new Date(event.date).toLocaleDateString()}
+//                 </p>
+//               )}
+//             </Link>
+//           </li>
+//         ))}
+//       </ul>
+//     </main>
+//   );
+// }
 
 
 
@@ -43,42 +48,54 @@ export default async function IndexPage() {
 
 
 // --------------------- MY WORKING STUFF -----------------------
-// import Image from "next/image";
-// import Link from "next/link";
+import Image from "next/image";
+import Link from "next/link";
+import { defineQuery } from "next-sanity";
+import { sanityFetch } from "@/sanity/lib/live";
 
+// Query to get homepage information
+const HOMEPAGE_QUERY = defineQuery(`*[_type == "homepage"]{heading}`);
+
+export default async function Home() {
 // export default function Home() {
-//   return (
-//     <div>
-//       <h1>Lorem ipsum</h1>
+  // query sanity and get data
+  const data = await sanityFetch({query: HOMEPAGE_QUERY});
 
-//       {/* Sidenav */}
-//       <nav>
-//         <ul>
-//           <li><Link href="/pianist">Pianist</Link></li>
-//           <li><Link href="/compositions">Compositions</Link></li>
-//           <li><Link href="/ethnomusicology">Ethnomusicology</Link></li>
-//           <li><Link href="/events">Events</Link></li>
-//           <li><Link href="/about">About</Link></li>
-//           <li><Link href="/contact">Contact</Link></li>
-//         </ul>
-//       </nav>
+  // console.log(data.data[0].heading);
 
-//       <main>
-//         {/* Image */}
-//         <Image src="/images/placeholder-1.jpg" alt="Placeholder image" width={600} height={600} />
+  return (
+    <div>
+      <h1>{data.data[0].heading}</h1>
 
-//         {/* Intro text and audio */}
-//         <div>
-//           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-//           <audio controls src={null}></audio>
-//         </div>
-//       </main>
+      {/* Sidenav */}
+      <nav>
+        <ul>
+          <li><Link href="/pianist">Pianist</Link></li>
+          <li><Link href="/compositions">Compositions</Link></li>
+          <li><Link href="/ethnomusicology">Ethnomusicology</Link></li>
+          <li><Link href="/events">Events</Link></li>
+          <li><Link href="/about">About</Link></li>
+          <li><Link href="/contact">Contact</Link></li>
+        </ul>
+      </nav>
+
+      <main>
+        {/* Image */}
+        <Image src="/images/placeholder-1.jpg" alt="Placeholder image" width={600} height={600} />
+
+        {/* Intro text and audio */}
+        <div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+          <audio controls src={null}></audio>
+        </div>
+      </main>
       
 
-//       {/* Image */}
-//       {/* <a href="https://www.freepik.com/free-photo/handsome-hipster-male-with-beard-sunglasses-texting-messages-via-smartphone-blogging-social-networks-sharing-multimedia_9406922.htm#from_view=detail_alsolike">Image by svetlanasokolova on Freepik</a> */}
-//     </div>
-
+      {/* Image */}
+      {/* <a href="https://www.freepik.com/free-photo/handsome-hipster-male-with-beard-sunglasses-texting-messages-via-smartphone-blogging-social-networks-sharing-multimedia_9406922.htm#from_view=detail_alsolike">Image by svetlanasokolova on Freepik</a> */}
+    </div>
+  )
+}
 
 
 
