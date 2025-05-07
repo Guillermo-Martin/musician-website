@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "cy:open": "cypress open",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -31,6 +32,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cypress": "^14.3.3",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
     "jest": "^29.7.0",
