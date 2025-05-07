@@ -1,52 +1,3 @@
-// --------------------- SANITY EXAMPLE -----------------------
-// import Link from "next/link";
-// import { defineQuery } from "next-sanity";
-// import { sanityFetch } from "@/sanity/lib/live";
-
-
-
-// const EVENTS_QUERY = defineQuery(`*[
-//   _type == "event"
-//   && defined(slug.current)
-// ]{_id, name, slug, date}|order(date desc)`);
-
-// // console.log("Here is your query:", EVENTS_QUERY);
-
-// export default async function IndexPage() {
-//   const { data: events } = await sanityFetch({ query: EVENTS_QUERY });
-
-//   const testing = await sanityFetch({ query: EVENTS_QUERY });
-//   console.log("here is the data from the query:", testing);
-
-//   return (
-//     <main className="flex bg-gray-100 min-h-screen flex-col p-24 gap-12">
-//       <h1 className="text-4xl font-bold tracking-tighter">Events</h1>
-//       <ul className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-//         {events.map((event) => (
-//           <li className="bg-white p-4 rounded-lg" key={event._id}>
-//             <Link
-//               className="hover:underline"
-//               href={`/event/${event?.slug?.current}`}
-//             >
-//               <h2 className="text-xl font-semibold">{event?.name}</h2>
-//               {event?.date && (
-//                 <p className="text-gray-500">
-//                   {new Date(event.date).toLocaleDateString()}
-//                 </p>
-//               )}
-//             </Link>
-//           </li>
-//         ))}
-//       </ul>
-//     </main>
-//   );
-// }
-
-
-
-
-
-
 // --------------------- MY WORKING STUFF -----------------------
 import Image from "next/image";
 import Link from "next/link";
@@ -63,9 +14,9 @@ export default async function Home() {
   const { data } = await sanityFetch({query: HOMEPAGE_QUERY});
 
   // data
-  console.log("here is the homepage data:", data);
-  console.log(data[0].image.asset.url);
-  console.log(data[0].audio.asset.url);
+  // console.log("here is the homepage data:", data);
+  // console.log(data[0].image.asset.url);
+  // console.log(data[0].audio.asset.url);
 
   return (
     <div>
