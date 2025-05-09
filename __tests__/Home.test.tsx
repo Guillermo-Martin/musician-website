@@ -16,6 +16,7 @@ jest.mock("@/sanity/lib/live", () => ({
 // describe(): used to group related tests together to form a test suite
 // takes 2 arguments: string to describe the test suite and function that contains the tests
 describe("Homepage", () => {
+  // ********** TO DO: revise test suite: test homepage is querying sanity
   // ---------- Sanity data fetching ----------
   const HOMEPAGE_QUERY = defineQuery(`*[_type == "page"]{audio {asset -> {url}}, heading, image {asset -> {url}, alt_text}, short_description, slug}`);
   

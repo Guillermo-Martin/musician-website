@@ -6,7 +6,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 
 // Query to get homepage information
 // how to get url for assets uploaded to Sanity:  https://stackoverflow.com/questions/74935677/how-to-show-my-image-from-sanity-to-react-app
-const HOMEPAGE_QUERY = defineQuery("*[_type == 'page']{audio {asset -> {url}}, heading, image {asset -> {url}, alt_text}, short_description, slug}");
+const HOMEPAGE_QUERY = defineQuery("*[_type == 'page']{audio {asset -> {url}}, page_title, image {asset -> {url}, alt_text}, short_description, slug}");
 
 export default async function Home() {
 // export default function Home() {
@@ -14,13 +14,13 @@ export default async function Home() {
   const { data } = await sanityFetch({query: HOMEPAGE_QUERY});
 
   // data
-  // console.log("here is the homepage data:", data);
+  console.log("here is the homepage data:", data);
   // console.log(data[0].image.asset.url);
   // console.log(data[0].audio.asset.url);
 
   return (
     <div>
-      <h1>{data[0].heading}</h1>
+      <h1>{data[0].page_title}</h1>
 
       {/* Sidenav */}
       <nav>
@@ -36,12 +36,12 @@ export default async function Home() {
 
       <main>
         {/* Image */}
-        <Image src="/images/placeholder-1.jpg" alt="Placeholder image" width={600} height={600} />
+        <Image src={data[0].image.asset.url} alt={data[0].image.alt_text} width={600} height={600} />
 
         {/* Intro text and audio */}
         <div>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-          <audio controls src={null}></audio>
+          <audio controls src={data[0].audio.asset.url}></audio>
         </div>
       </main>
       
