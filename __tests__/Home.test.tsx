@@ -17,7 +17,7 @@ jest.mock("@/sanity/lib/live", () => ({
 // takes 2 arguments: string to describe the test suite and function that contains the tests
 describe("Homepage", () => {
   // ---------- Sanity data fetching ----------
-  const HOMEPAGE_QUERY = defineQuery(`*[_type == "homepage"]{audio {asset -> {url}}, heading, image {asset -> {url}, alt_text}, short_description}`);
+  const HOMEPAGE_QUERY = defineQuery(`*[_type == "page"]{audio {asset -> {url}}, heading, image {asset -> {url}, alt_text}, short_description, slug}`);
   
   it("fetches homepage data correctly", async () => {
     // arrange: return fake data when an API request is made using sanityFetch

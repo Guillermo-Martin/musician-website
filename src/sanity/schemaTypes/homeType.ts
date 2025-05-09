@@ -1,13 +1,20 @@
 import { defineField, defineType } from "sanity";
 
 export const homeType = defineType({
-  name: "homepage",
+  name: "page",
   title: "Homepage",
   type: "document",
   fields: [
     defineField({
-      name: "heading",
+      name: "page_title",
       type: "string",
+    }),
+    defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      readOnly: true,
+      initialValue: { current: "/" }
     }),
     defineField({
       name: "short_description",

@@ -6,7 +6,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 
 // Query to get homepage information
 // how to get url for assets uploaded to Sanity:  https://stackoverflow.com/questions/74935677/how-to-show-my-image-from-sanity-to-react-app
-const HOMEPAGE_QUERY = defineQuery("*[_type == 'homepage']{audio {asset -> {url}}, heading, image {asset -> {url}, alt_text}, short_description}");
+const HOMEPAGE_QUERY = defineQuery("*[_type == 'page']{audio {asset -> {url}}, heading, image {asset -> {url}, alt_text}, short_description, slug}");
 
 export default async function Home() {
 // export default function Home() {
