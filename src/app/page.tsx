@@ -6,21 +6,26 @@ import { sanityFetch } from "@/sanity/lib/live";
 
 // Query to get homepage information
 // how to get url for assets uploaded to Sanity:  https://stackoverflow.com/questions/74935677/how-to-show-my-image-from-sanity-to-react-app
-const HOMEPAGE_QUERY = defineQuery("*[_type == 'homepage' && !(_id in path('drafts.**'))]{audio {asset -> {url}}, page_title, image {asset -> {url}, alt_text}, short_description, slug}");
+// combining queries into one request: https://www.sanity.io/docs/content-lake/query-cheat-sheet#55d30f6804cc
+const HOMEPAGE_QUERY = defineQuery(`{
+  'homepage': *[_type == 'homepage' && !(_id in path('drafts.**'))]{audio {asset -> {url}}, page_title, image {asset -> {url}, alt_text}, short_description, slug}, 
+  'slugs': *[pageType == 'page']
+}`);
 
 export default async function Home() {
-// export default function Home() {
   // query sanity and get data
   const { data } = await sanityFetch({query: HOMEPAGE_QUERY});
 
   // data
-  console.log("here is the homepage data:", data);
+  console.log("here is the homepage data:", data.homepage);
+  console.log("here is the slug data:", data.slugs);
+  // console.log("here is the slug data:", slugData)
   // console.log(data[0].image.asset.url);
   // console.log(data[0].audio.asset.url);
 
   return (
     <div>
-      <h1>{data[0].page_title}</h1>
+      <h1>{data.homepage[0].page_title}</h1>
 
       {/* Sidenav */}
       <nav>
@@ -36,12 +41,12 @@ export default async function Home() {
 
       <main>
         {/* Image */}
-        <Image src={data[0].image.asset.url} alt={data[0].image.alt_text} width={600} height={600} />
+        <Image src={data.homepage[0].image.asset.url} alt={data.homepage[0].image.alt_text} width={600} height={600} />
 
         {/* Intro text and audio */}
         <div>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-          <audio controls src={data[0].audio.asset.url}></audio>
+          <audio controls src={data.homepage[0].audio.asset.url}></audio>
         </div>
       </main>
       
