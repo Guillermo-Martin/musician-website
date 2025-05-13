@@ -1,7 +1,7 @@
 import { defineField, defineType } from "sanity";
 
 export const homeType = defineType({
-  name: "page",
+  name: "homepage",
   title: "Homepage",
   type: "document",
   fields: [
@@ -38,6 +38,14 @@ export const homeType = defineType({
         accept: "audio/*"
       }
     }),
+    // * the defineField below is for being able to query all pages to make links
+    defineField({
+      name: "pageType",
+      type: "string",
+      readOnly: true,
+      hidden: true,
+      initialValue: "page"
+    })
   ],
 });
 
