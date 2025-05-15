@@ -17,6 +17,7 @@ export default async function Home() {
   const { data } = await sanityFetch({query: HOMEPAGE_QUERY});
 
   // data
+  // console.log("here is all data:", data);
   console.log("here is the homepage data:", data.homepage);
   console.log("here is the slug data:", data.slugs);
   // console.log("here is the slug data:", slugData)
