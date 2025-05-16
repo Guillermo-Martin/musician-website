@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 describe("Homepage", () => {
   it("renders the homepage with Sanity content", () => {
     // arrange: visit homepage
