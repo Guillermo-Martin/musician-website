@@ -42,7 +42,10 @@ export default async function Home() {
 
       <main>
         {/* Image */}
-        <Image src={data.homepage[0].image.asset.url} alt={data.homepage[0].image.alt_text} width={600} height={600} />
+        <div id="homepage-hero-image">
+          <Image src={data.homepage[0].image.asset.url} alt={data.homepage[0].image.alt_text} width={600} height={600} id="homepage-hero-image"/>
+        </div>
+        
 
         {/* Intro text and audio */}
         <div>
