@@ -12,15 +12,14 @@ describe("Homepage", () => {
     // const navbarLinks = cy.get(".navbar a");
 
     // assert:
-    // * the h1 has a title
+    // * TEST:  the h1 is visible and isn't empty
     cy.get("h1").should("be.visible").and("not.be.empty");
 
     // * the subheader isn't empty
     // subHeader.should("be.visible").and("not.be.empty");
 
-    // * the image should be visible on the page
-    // * it should also have a src and alt attribute
-    // * the src and alt attributes shouldn't be empty
+    // * TEST:  the image should be visible on the page
+    // * it should also have a src and alt attribute, that aren't empty
     // make multiple assertions on the same subject
     cy.get("#homepage-hero-image img").should(($img) => {
       expect($img).to.be.visible;
@@ -29,8 +28,12 @@ describe("Homepage", () => {
     });
 
 
-    // * the audio has a src
-    // audio.should("be.visible").and("have.attr", "src").and("not.be.empty");
+    // * TEST:  the audio element should be visible on the page
+    // * it shoudl also have a src attribute that isn't empty
+    cy.get("audio").should(($audio) => {
+      expect($audio).to.be.visible;
+      expect($audio).to.have.attr("src").and.not.be.empty; 
+    });
 
     // // * the navbar has links that aren't empty and the href has a path to the correct page
     // navbarLinks.each(link => {
