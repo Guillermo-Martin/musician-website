@@ -29,7 +29,7 @@ export default async function Home() {
       <h1>{data.homepage[0].page_title}</h1>
 
       {/* Sidenav */}
-      <nav>
+      <nav className="navbar">
         <ul>
           <li><Link href="/pianist">Pianist</Link></li>
           <li><Link href="/compositions">Compositions</Link></li>
@@ -49,7 +49,7 @@ export default async function Home() {
 
         {/* Intro text and audio */}
         <div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+          <p className="subheader">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
           <audio controls src={data.homepage[0].audio.asset.url}></audio>
         </div>
       </main>
