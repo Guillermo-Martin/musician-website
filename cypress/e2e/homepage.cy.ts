@@ -5,18 +5,15 @@ describe("Homepage", () => {
     cy.visit("/");
 
     // action: find the elements (h1, subheader, image, audio, navbar links)
-    // const h1 = cy.get("h1");
-    // const subHeader = cy.get(".subheader");
-    // const img = cy.get("img");
-    // const audio = cy.get("audio");
-    // const navbarLinks = cy.get(".navbar a");
-
+    
     // assert:
     // * TEST:  the h1 is visible and isn't empty
     cy.get("h1").should("be.visible").and("not.be.empty");
 
-    // * the subheader isn't empty
-    // subHeader.should("be.visible").and("not.be.empty");
+
+    // * TEST:  the subheader is visible and isn't empty
+    cy.get(".subheader").should("be.visible").and("not.be.empty");
+
 
     // * TEST:  the image should be visible on the page
     // * it should also have a src and alt attribute, that aren't empty
@@ -35,9 +32,13 @@ describe("Homepage", () => {
       expect($audio).to.have.attr("src").and.not.be.empty; 
     });
 
-    // // * the navbar has links that aren't empty and the href has a path to the correct page
-    // navbarLinks.each(link => {
-    //   cy.wrap(link).should("be.visible").and("not.be.empty").and("have.attr", "href").and("not.be.empty");
-    // });
+    // * TEST:  the navbar has links and are visible on the page.
+    // * each link has an href that isn't empty and goes to the correct page.
+    cy.get(".navbar a").each(($link) => {
+      expect($link).to.be.visible;
+      expect($link).to.have.attr("href").and.not.be.empty;
+    });
+
+
   });
 });
