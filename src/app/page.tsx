@@ -4,6 +4,14 @@ import Link from "next/link";
 import { defineQuery } from "next-sanity";
 import { sanityFetch } from "@/sanity/lib/live";
 
+// ---------- Interfaces ---------
+interface Slug {
+  page_title: "string";
+  slug: {
+    current: "string";
+  }
+};
+
 // Query to get homepage information
 // how to get url for assets uploaded to Sanity:  https://stackoverflow.com/questions/74935677/how-to-show-my-image-from-sanity-to-react-app
 // combining queries into one request: https://www.sanity.io/docs/content-lake/query-cheat-sheet#55d30f6804cc
@@ -15,14 +23,15 @@ const HOMEPAGE_QUERY = defineQuery(`{
 export default async function Home() {
   // query sanity and get data
   const { data } = await sanityFetch({query: HOMEPAGE_QUERY});
+  const slugData = data.slugs;
 
-  // data
-  // console.log("here is all data:", data);
-  console.log("here is the homepage data:", data.homepage);
-  console.log("here is the slug data:", data.slugs);
-  // console.log("here is the slug data:", slugData)
-  // console.log(data[0].image.asset.url);
-  // console.log(data[0].audio.asset.url);
+  // for every slug, get the page title and the "current" slug, and make an "li" element
+  // containing a Link component
+  const navLinks = slugData.map((slug: Slug) => {
+    return (
+      <li key={slug.page_title}><Link href={slug.slug.current}>{slug.page_title}</Link></li>
+    );
+  });
 
   return (
     <div>
@@ -30,14 +39,7 @@ export default async function Home() {
 
       {/* Sidenav */}
       <nav className="navbar">
-        <ul>
-          <li><Link href="/pianist">Pianist</Link></li>
-          <li><Link href="/compositions">Compositions</Link></li>
-          <li><Link href="/ethnomusicology">Ethnomusicology</Link></li>
-          <li><Link href="/events">Events</Link></li>
-          <li><Link href="/about">About</Link></li>
-          <li><Link href="/contact">Contact</Link></li>
-        </ul>
+        <ul>{navLinks}</ul>
       </nav>
 
       <main>
@@ -46,20 +48,15 @@ export default async function Home() {
           <Image src={data.homepage[0].image.asset.url} alt={data.homepage[0].image.alt_text} width={600} height={600} id="homepage-hero-image"/>
         </div>
         
-
         {/* Intro text and audio */}
         <div>
           <p className="subheader">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
           <audio controls src={data.homepage[0].audio.asset.url}></audio>
         </div>
       </main>
-      
-
-      {/* Image */}
-      {/* <a href="https://www.freepik.com/free-photo/handsome-hipster-male-with-beard-sunglasses-texting-messages-via-smartphone-blogging-social-networks-sharing-multimedia_9406922.htm#from_view=detail_alsolike">Image by svetlanasokolova on Freepik</a> */}
     </div>
-  )
-}
+  );
+};
 
 
 
