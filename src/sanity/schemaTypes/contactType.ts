@@ -13,10 +13,12 @@ export const contactType = defineType({
       name: "slug",
       title: "Slug",
       type: "slug",
-      options: {source: "page_title"},
-      validation: (rule) => rule
-        .required()
-        .error(`Required to generate a page on the website`),
+      readOnly: true,
+      initialValue: { current: "contact" }
+      // options: {source: "page_title"},
+      // validation: (rule) => rule
+      //   .required()
+      //   .error(`Required to generate a page on the website`),
     }),
     defineField({
       name: "short_description",
