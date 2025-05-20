@@ -1,0 +1,15 @@
+// Typescript configuration just for Cypress (prevents conflicts with Jest).
+// This file tells Typescript to use Cypress global types only inside files 
+// that are part of Cypress testing.
+// Cypress clashing with Jest:  https://github.com/cypress-io/cypress/issues/22059
+
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "types": ["cypress"],
+    "composite": true,
+    "noEmit": false
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["../node_modules"]
+}

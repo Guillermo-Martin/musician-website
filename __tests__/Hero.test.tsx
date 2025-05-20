@@ -2,8 +2,6 @@
  * @jest-environment jsdom
  */
 
-// import "@testing-library/jest-dom";
-// import { expect } from "@jest/globals";
 import { render, screen, cleanup } from "@testing-library/react";
 import Hero from "@/components/Hero";
 
