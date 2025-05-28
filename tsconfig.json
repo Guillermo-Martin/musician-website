@@ -1,8 +1,15 @@
 {
   "compilerOptions": {
-    "typeRoots": ["./types", "./node_modules/@types"],
+    "typeRoots": [
+      "./types",
+      "./node_modules/@types"
+    ],
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -20,10 +27,17 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "next-env.d.ts",
+    ".next/types/**/*.ts"
+  ],
   "exclude": [
     "./cypress.config.ts",
     // other exclusions that may help https://github.com/cypress-io/cypress/issues/22059#issuecomment-1428298264
@@ -32,9 +46,12 @@
     "**/*.cy.tsx"
   ],
   "references": [
-    { "path": "./tsconfig.jest.json" },
-    { "path": "./cypress/tsconfig.json" }
+    {
+      "path": "./tsconfig.jest.json"
+    },
+    {
+      "path": "./cypress/tsconfig.json"
+    }
   ]
 }
-
 // Creating dedicated Typescript files for Jest and Cypress to prevent clashing: https://github.com/cypress-io/cypress/issues/22059
