@@ -36,7 +36,7 @@ export default async function Home() {
 
   return (
     <div>
-      <Navbar />
+      <Navbar links={slugData} />
       <h1>{data.homepage[0].page_title}</h1>
 
       {/* Sidenav */}

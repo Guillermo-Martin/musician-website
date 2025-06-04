@@ -3,19 +3,111 @@
 */
 
 import { render, screen, within } from "@testing-library/react";
+import Navbar from "@/components/Navbar";
 
 describe("Navbar", () => {
+  // * TEST - Navbar renders correctly
+  it("Renders the navbar on the page", () => {
+      const expectedLinks = [
+        { 
+          page_title: "Home",
+          slug: {
+            current: "/"
+          } 
+        },
+        { 
+          page_title: "Pianist",
+          slug: {
+            current: "pianist"
+          } 
+        },
+        { 
+          page_title: "Compositions",
+          slug: {
+            current: "compositions"
+          } 
+        },
+        { 
+          page_title: "Ethnomusicology",
+          slug: {
+            current: "ethnomusicology"
+          } 
+        },
+        { 
+          page_title: "Events",
+          slug: {
+            current: "events"
+          } 
+        },
+        { 
+          page_title: "About",
+          slug: {
+            current: "about"
+          } 
+        },
+        { 
+          page_title: "Contact",
+          slug: {
+            current: "contact"
+          } 
+        },
+    ];
+
+    render(<Navbar links={expectedLinks} />);
+
+
+    const navbar = screen.getByRole("navigation");
+
+    expect(navbar).toBeInTheDocument();
+  });
+
+
   // * TEST - all page links are rendered and correct in the Navbar component
   it("Renders all of the page links", () => {
     // create an array of expected links
     const expectedLinks = [
-        { name: "Home", href: "/" },
-        { name: "Pianist", href: "/pianist" },
-        { name: "Compositions", href: "/compositions" },
-        { name: "Ethnomusicology", href: "/ethnomusicology" },
-        { name: "Events", href: "/events" },
-        { name: "About", href: "/about" },
-        { name: "Contact", href: "/contact" },
+        { 
+          page_title: "Home",
+          slug: {
+            current: "/"
+          } 
+        },
+        { 
+          page_title: "Pianist",
+          slug: {
+            current: "pianist"
+          } 
+        },
+        { 
+          page_title: "Compositions",
+          slug: {
+            current: "compositions"
+          } 
+        },
+        { 
+          page_title: "Ethnomusicology",
+          slug: {
+            current: "ethnomusicology"
+          } 
+        },
+        { 
+          page_title: "Events",
+          slug: {
+            current: "events"
+          } 
+        },
+        { 
+          page_title: "About",
+          slug: {
+            current: "about"
+          } 
+        },
+        { 
+          page_title: "Contact",
+          slug: {
+            current: "contact"
+          } 
+        },
     ];
 
     // ---------- Arrange ----------
@@ -26,23 +118,23 @@ describe("Navbar", () => {
 
     // ---------- Action ----------
     // * get the navbar
-    const navbar = screen.queryByRole("nav");
+    const navbar = screen.getByRole("navigation");
 
     // loop through each of the expected links
     // querying within elements:  https://testing-library.com/docs/dom-testing-library/api-within/
     for(const link of expectedLinks) {
       // for each href in the "expectedLinks", find the link on the screen using the link's name
-      const navLink = within(navbar).getByRole("link", { name: link.name });
+      const navLink = within(navbar).getByRole("link", { name: link.page_title });
 
       // ---------- Assertions ----------
       // * Expect the navlinks to be in the document
       expect(navLink).toBeInTheDocument();
 
-      // * Expect the href to be the href in the "expectedLinks" array
-      expect(navLink.getAttribute("href")).toBe(link.href);
+      // * Expect the href to be the "current" in the "slug" object of the "expectedLinks" array
+      expect(navLink.getAttribute("href")).toBe(link.slug.current);
 
       // * Expect that the text for the link is correct
-      expect(navLink).toHaveTextContent(link.name);
+      expect(navLink).toHaveTextContent(link.page_title);
     };
   });
 });
