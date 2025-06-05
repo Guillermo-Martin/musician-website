@@ -1,13 +1,15 @@
 /**
  * @jest-environment jsdom
 */
-
 import { render, screen, within } from "@testing-library/react";
 import Navbar from "@/components/Navbar";
 
 describe("Navbar", () => {
-  // * TEST - Navbar renders correctly
+  // --------------------------------------------------------------------
+  // * TEST:  Navbar renders correctly
+  // --------------------------------------------------------------------
   it("Renders the navbar on the page", () => {
+      // ---------- Arrange ----------
       const expectedLinks = [
         { 
           page_title: "Home",
@@ -53,18 +55,24 @@ describe("Navbar", () => {
         },
     ];
 
+    // render the component
     render(<Navbar links={expectedLinks} />);
 
-
+    // ---------- Action ----------
+    // get the navbar
     const navbar = screen.getByRole("navigation");
 
+    // ---------- Assert ----------
+    // * expect the navbar to be in the document
     expect(navbar).toBeInTheDocument();
   });
 
 
-  // * TEST - all page links are rendered and correct in the Navbar component
+  // --------------------------------------------------------------------
+  // * TEST:  all page links are rendered and correct in the Navbar component
+  // --------------------------------------------------------------------
   it("Renders all of the page links", () => {
-    // create an array of expected links
+    // ---------- Arrange ----------
     const expectedLinks = [
         { 
           page_title: "Home",
@@ -110,14 +118,13 @@ describe("Navbar", () => {
         },
     ];
 
-    // ---------- Arrange ----------
     // render the Navbar component and provide it the array of links as props
     render(
       <Navbar links={expectedLinks} />
     );
 
     // ---------- Action ----------
-    // * get the navbar
+    // get the navbar
     const navbar = screen.getByRole("navigation");
 
     // loop through each of the expected links
