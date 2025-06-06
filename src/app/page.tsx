@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { defineQuery } from "next-sanity";
 import { sanityFetch } from "@/sanity/lib/live";
-import Navbar from "@/components/Navbar";
+// import Navbar from "@/components/Navbar";
 
 // ---------- Interfaces ---------
 interface Slug {
@@ -36,7 +36,7 @@ export default async function Home() {
 
   return (
     <div>
-      <Navbar links={slugData} />
+      {/* <Navbar links={slugData} /> */}
       <h1>{data.homepage[0].page_title}</h1>
 
       {/* Sidenav */}

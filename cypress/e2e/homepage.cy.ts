@@ -38,7 +38,5 @@ describe("Homepage", () => {
       expect($link).to.be.visible;
       expect($link).to.have.attr("href").and.not.be.empty;
     });
-
-
   });
 });
