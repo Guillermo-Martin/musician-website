@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Homepage, Slug } from "@/interfaces/Interfaces";
+import Footer from "@/components/Footer";
 
 // --------------------------------------------------------------------
 //                            Interfaces
@@ -48,6 +49,9 @@ function HomeContent({ data }: HomeContentProps) {
           <audio controls src={data.homepage[0].audio.asset.url}></audio>
         </div>
       </main>
+
+      {/* ---------- Footer ---------- */}
+      <Footer />
     </div>
   );
 };
