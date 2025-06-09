@@ -3,7 +3,6 @@ import { defineQuery } from "next-sanity";
 import { sanityFetch } from "@/sanity/lib/live";
 import ClientWrapper from "@/components/ClientWrapper";
 
-
 // Query to get homepage information
 // how to get url for assets uploaded to Sanity:  https://stackoverflow.com/questions/74935677/how-to-show-my-image-from-sanity-to-react-app
 // combining queries into one request: https://www.sanity.io/docs/content-lake/query-cheat-sheet#55d30f6804cc
@@ -15,14 +14,10 @@ const HOMEPAGE_QUERY = defineQuery(`{
 export default async function Home() {
   // query sanity and get data
   const { data } = await sanityFetch({query: HOMEPAGE_QUERY});
-  const slugData = data.slugs;
-
-  console.log("Server component", data);
 
   return (
-    
     <div>
-      {/* <ClientWrapper data={data} slugData={slugData} /> */}
+      {/* Pass fetched data to "ClientWrapper" component */}
       <ClientWrapper data={data} />
     </div>
   );
