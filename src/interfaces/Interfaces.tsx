@@ -1,6 +1,6 @@
 export interface Homepage {
   audio: { 
-    asset: { url: string}
+    asset: { url: string }
   };
   image: { 
     alt_text: string,
@@ -12,8 +12,8 @@ export interface Homepage {
 };
 
 export interface Slug {
-  page_title: "string";
+  page_title: string;
   slug: {
-    current: "string";
+    current: string;
   };
 };
