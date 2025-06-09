@@ -1,34 +1,15 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import type { Homepage, Slug } from "@/interfaces/Interfaces";
 
 // --------------------------------------------------------------------
 //                            Interfaces
 // --------------------------------------------------------------------
-interface Homepage {
-  audio: { 
-    asset: { url: string}
-  };
-  image: { 
-    alt_text: string,
-    asset: { url: string }
-  };
-  page_title: string;
-  short_description: string;
-  slug: { current: string };
-};
-
-interface Slug {
-  page_title: "string";
-  slug: {
-    current: "string";
-  }
-};
-
 interface HomePageData {
   homepage: Homepage[];
   slugs: Slug[];
-}
+};
 
 interface HomeContentProps {
   data: HomePageData;

@@ -1,6 +1,7 @@
 "use client";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
+import type { Homepage, Slug } from "@/interfaces/Interfaces";
 
 // Dynamic imports:  https://nextjs.org/learn/seo/dynamic-import-components
 // * Dynamically load the "HomeContent" component on the client-side
@@ -11,30 +12,10 @@ const HomeContent = dynamic(() => import("./HomeContent"), { ssr: false });
 // --------------------------------------------------------------------
 //                            Interfaces
 // --------------------------------------------------------------------
-interface Homepage {
-  audio: { 
-    asset: { url: string}
-  };
-  image: { 
-    alt_text: string,
-    asset: { url: string }
-  };
-  page_title: string;
-  short_description: string;
-  slug: { current: string };
-};
-
-interface Slug {
-  page_title: "string";
-  slug: {
-    current: "string";
-  }
-};
-
 interface HomePageData {
   homepage: Homepage[];
   slugs: Slug[];
-}
+};
 
 interface ClientWrapperProps {
   data: HomePageData;

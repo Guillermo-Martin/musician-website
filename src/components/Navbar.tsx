@@ -1,15 +1,9 @@
 import Link from "next/link";
+import type { Slug } from "@/interfaces/Interfaces";
 
 // --------------------------------------------------------------------
 //                            Interfaces
 // --------------------------------------------------------------------
-interface Slug {
-  page_title: string;
-  slug: {
-    current: string;
-  }
-};
-
 interface NavbarProps {
   // links is going to be an array of objects
   links: Slug[]
