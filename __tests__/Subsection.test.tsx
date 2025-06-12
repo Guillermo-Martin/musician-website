@@ -58,7 +58,7 @@ describe("Subsection", () => {
       <Subsection 
         subsectionTitle="This is a subsection title"
         description="This is a short paragraph in the subsection"
-        src={false}
+        src={null}
         alt="Placeholder image"
       />
     );

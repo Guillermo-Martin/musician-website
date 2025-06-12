@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Hero from "@/components/Hero";
+import Subsection from "@/components/Subsection";
 
 function About() {
   return (
@@ -7,13 +8,15 @@ function About() {
       <Hero pageTitle="About page" description={false} src="/images/placeholder-1.jpg"  alt="some text" />
 
       {/* ---------- Hero section ---------- */}
-      <div>
+      {/* <div>
         <h1>About page</h1>
         <Image src="/images/placeholder-1.jpg" alt="Placeholer image" width={680} height={428} />
-      </div>
+      </div> */}
       
       {/* ---------- Main about section ---------- */}
       <div>
+        <Subsection subsectionTitle="I'm a subsection title!" description="Description will go here" src="/images/placeholder-1.jpg" alt="subsection image alt text" />
+        <Subsection subsectionTitle="I'm a subsection title!" description="Description will go here" src={null} alt="" />
         {/* ----- Subsection ----- */}
         <div className="subsection">
           {/* Text container */}
@@ -24,7 +27,7 @@ function About() {
           
           {/* Image container */}
           <div className="image-container">
-            <Image src="/images/placeholder-1.jpg" alt="Placeholer image" width={680} height={428} />
+            <Image src="/images/placeholder-1.jpg" alt="Placeholder image" width={680} height={428} />
           </div>
         </div>
 
