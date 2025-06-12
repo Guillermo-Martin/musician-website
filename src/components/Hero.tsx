@@ -1,12 +1,18 @@
 import Image from "next/image";
 
+// --------------------------------------------------------------------
+//                            Interfaces
+// --------------------------------------------------------------------
 interface HeroProps {
   pageTitle: string;
   description: string | boolean;
   src: string;
   alt: string;
-}
+};
 
+// --------------------------------------------------------------------
+//                            Component
+// --------------------------------------------------------------------
 function Hero({ pageTitle, description, src, alt }: HeroProps) {
   return (
     <div className="hero-section">

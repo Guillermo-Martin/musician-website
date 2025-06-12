@@ -5,60 +5,24 @@ import Subsection from "@/components/Subsection";
 function About() {
   return (
     <div>
-      <Hero pageTitle="About page" description={false} src="/images/placeholder-1.jpg"  alt="some text" />
-
       {/* ---------- Hero section ---------- */}
-      {/* <div>
-        <h1>About page</h1>
-        <Image src="/images/placeholder-1.jpg" alt="Placeholer image" width={680} height={428} />
-      </div> */}
-      
+      <Hero pageTitle="About page" description={false} src="/images/placeholder-1.jpg"  alt="some text" />
+    
       {/* ---------- Main about section ---------- */}
       <div>
-        <Subsection subsectionTitle="I'm a subsection title!" description="Description will go here" src="/images/placeholder-1.jpg" alt="subsection image alt text" />
-        <Subsection subsectionTitle="I'm a subsection title!" description="Description will go here" src={null} alt="" />
         {/* ----- Subsection ----- */}
-        <div className="subsection">
-          {/* Text container */}
-          <div className="text-container">
-            <h2>Subsection title</h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum veritatis recusandae fugit, inventore cupiditate incidunt esse magnam dignissimos. Voluptates sed excepturi perferendis. Neque expedita officiis sequi ducimus est asperiores unde!</p>
-          </div>
-          
-          {/* Image container */}
-          <div className="image-container">
-            <Image src="/images/placeholder-1.jpg" alt="Placeholder image" width={680} height={428} />
-          </div>
-        </div>
+        <Subsection subsectionTitle="I'm a subsection title!" description="Description will go here" src="/images/placeholder-1.jpg" alt="subsection image alt text" />
 
         {/* ----- Subsection ----- */}
-        <div className="subsection">
-          {/* Text container */}
-          <div className="text-container">
-            <h2>Subsection title</h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum veritatis recusandae fugit, inventore cupiditate incidunt esse magnam dignissimos. Voluptates sed excepturi perferendis. Neque expedita officiis sequi ducimus est asperiores unde!</p>
-          </div>
-          
-          {/* Image container */}
-          <div className="image-container">
-            <Image src="/images/placeholder-1.jpg" alt="Placeholer image" width={680} height={428} />
-          </div>
-        </div>
+        <Subsection subsectionTitle="I'm a subsection title!" description="Description will go here" src="/images/placeholder-1.jpg" alt="subsection image alt text" />
 
         {/* ----- Subsection ver. 2----- */}
-        <div className="subsection">
-          {/* Text container */}
-          <div className="text-container">
-            <h2>Subsection title</h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum veritatis recusandae fugit, inventore cupiditate incidunt esse magnam dignissimos. Voluptates sed excepturi perferendis. Neque expedita officiis sequi ducimus est asperiores unde!</p>
-          </div>
+        <Subsection subsectionTitle="I'm a subsection title!" description="Description will go here" src={null} alt="" />
           
-          {/* Image container */}
-          <div className="image-container">
-            <Image src="/images/placeholder-1.jpg" alt="Placeholer image" width={680} height={428} />
-          </div>
-
-          {/* Quote */}
+          
+        {/* ----- Quote section ----- */}
+        <div>
+          <Image src="/images/placeholder-1.jpg" alt="Placeholer image" width={680} height={428} />
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur ex sed sint vero sunt dolorem non quibusdam aliquid? Dignissimos eveniet ullam totam cupiditate molestias fuga doloribus exercitationem, a beatae quae!</p>
         </div>
       </div>

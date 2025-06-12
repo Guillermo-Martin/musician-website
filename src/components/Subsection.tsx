@@ -1,13 +1,18 @@
 import Image from "next/image";
 
-// interface
+// --------------------------------------------------------------------
+//                            Interfaces
+// --------------------------------------------------------------------
 interface SubsectionProps {
   subsectionTitle: string;
   description: string;
   src: string | null;
   alt: string;
-}
+};
 
+// --------------------------------------------------------------------
+//                            Component
+// --------------------------------------------------------------------
 function Subsection({ subsectionTitle, description, src, alt }: SubsectionProps){
   return (
     <div className="subsection">
