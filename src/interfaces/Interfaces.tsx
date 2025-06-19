@@ -17,3 +17,10 @@ export interface Slug {
     current: string;
   };
 };
+
+export interface ImageInterface {
+  alt_text: string;
+  asset: { 
+    url: string;
+  };
+};

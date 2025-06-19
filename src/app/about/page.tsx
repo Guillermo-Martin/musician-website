@@ -27,9 +27,9 @@ async function AboutPage() {
   // query sanity and get data
   const { data } = await sanityFetch({query: ABOUT_PAGE_QUERY})
 
-  console.log("IN ABOUT", data);
+  // console.log("IN ABOUT", data);
 
-  return <About />
+  return <About data={data} />
 };
 
 export default AboutPage;
