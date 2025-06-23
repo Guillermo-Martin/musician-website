@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Hero from "@/components/Hero";
+import Audio from "@/components/Audio";
 
 function Compositions() {
   return (
@@ -26,10 +27,11 @@ function Compositions() {
             </div>
 
             {/* Description and player */}
-            <div>
+            {/* <div>
               <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero eius, quidem quas sequi rem provident aspernatur nisi! Necessitatibus, maxime. Et ea quia, libero fugiat labore totam temporibus nulla fuga alias?</p>
               <audio controls src={null}></audio>
-            </div>
+            </div> */}
+            <Audio />
           </div>
 
           {/* Work */}
@@ -41,10 +43,11 @@ function Compositions() {
             </div>
 
             {/* Description and player */}
-            <div>
+            {/* <div>
               <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero eius, quidem quas sequi rem provident aspernatur nisi! Necessitatibus, maxime. Et ea quia, libero fugiat labore totam temporibus nulla fuga alias?</p>
               <audio controls src={null}></audio>
-            </div>
+            </div> */}
+            <Audio />
           </div>
 
           {/* Work */}
