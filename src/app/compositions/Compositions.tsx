@@ -1,21 +1,11 @@
 import Image from "next/image";
+import Hero from "@/components/Hero";
 
 function Compositions() {
   return (
     <div>
       {/* ---------- Hero section ---------- */}
-      <div className="hero-section">
-        {/* ----- Text container ----- */}
-        <div className="text-container">
-          <h1>Compositions page</h1>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam nobis esse est. Error sed alias earum ipsum officiis labore veritatis minima repellat tempore laborum eligendi nostrum, laudantium facere aperiam illum.</p>
-        </div>
-        
-        {/* ----- Image container ----- */}
-        <div className="image-container">
-          <Image src="/images/placeholder-1.jpg" alt="Placeholer image" width={680} height={428} />
-        </div>
-      </div>
+      <Hero pageTitle="This is the 'Compositions' page" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit obcaecati voluptates, omnis cumque placeat quidem, dicta culpa perspiciatis vitae aperiam provident modi rerum tempore voluptate ipsa, officia error reprehenderit corrupti." src="/images/placeholder-1.jpg" alt="placeholder image" />
 
       {/* ---------- Works ---------- */}
       <div className="works">
