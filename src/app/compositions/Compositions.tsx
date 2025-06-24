@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Hero from "@/components/Hero";
 import Audio from "@/components/Audio";
+import Subsection from "@/components/Subsection";
 
 function Compositions() {
   return (
@@ -11,10 +12,11 @@ function Compositions() {
       {/* ---------- Works ---------- */}
       <div className="works">
         {/* ----- Text container ----- */}
-        <div className="text-container">
+        {/* <div className="text-container">
           <h2>Works</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit obcaecati voluptates, omnis cumque placeat quidem, dicta culpa perspiciatis vitae aperiam provident modi rerum tempore voluptate ipsa, officia error reprehenderit corrupti.</p>
-        </div>
+        </div> */}
+        <Subsection subsectionTitle="My works" description="I describe my works here" src={null} alt="" />
 
         {/* ----- Works ----- */}
         <div className="works-container">
@@ -59,10 +61,11 @@ function Compositions() {
             </div>
 
             {/* Description and player */}
-            <div>
+            {/* <div>
               <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero eius, quidem quas sequi rem provident aspernatur nisi! Necessitatibus, maxime. Et ea quia, libero fugiat labore totam temporibus nulla fuga alias?</p>
               <audio controls src={null}></audio>
-            </div>
+            </div> */}
+            <Audio />
           </div>
         </div>
       </div>
