@@ -42,59 +42,36 @@ export const compositionsType = defineType({
       name: "subsection1_description",
       type: "text",
     }),
+    // array type:  https://www.sanity.io/docs/studio/array-type
     defineField({
-      name: "song1_title",
-      title: "Song #1 title",
-      type: "string",
-    }),
-    defineField({
-      name: "song1_date",
-      title: "Song #1 date",
-      type: "string",
-    }),
-    defineField({
-      name: "song1_audio_file",
-      title: "Song #1 audio file",
-      type: "file",
-      options: {
-        accept: "audio/*"
-      }
-    }),
-    defineField({
-      name: "song2_title",
-      title: "Song #2 title",
-      type: "string",
-    }),
-    defineField({
-      name: "song2_date",
-      title: "Song #2 date",
-      type: "string",
-    }),
-    defineField({
-      name: "song2_audio_file",
-      title: "Song #2 audio file",
-      type: "file",
-      options: {
-        accept: "audio/*"
-      }
-    }),
-    defineField({
-      name: "song3_title",
-      title: "Song #3 title",
-      type: "string",
-    }),
-    defineField({
-      name: "song3_date",
-      title: "Song #3 date",
-      type: "string",
-    }),
-    defineField({
-      name: "song3_audio_file",
-      title: "Song #3 audio file",
-      type: "file",
-      options: {
-        accept: "audio/*"
-      }
+      name: "works",
+      title: "Works",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            {
+              name: 'title',
+              title: 'Title',
+              type: 'string'
+            },
+            {
+              name: 'date',
+              title: 'Date',
+              type: 'string'
+            },
+            {
+              name: 'audio_file',
+              title: 'Audio file',
+              type: 'file',
+              options: {
+                accept: 'audio/*'
+              }
+            },
+          ]
+        }
+      ]
     }),
     // * the defineField below is for being able to query all pages to make links
     defineField({
