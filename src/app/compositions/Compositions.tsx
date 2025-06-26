@@ -3,20 +3,24 @@ import Hero from "@/components/Hero";
 import Audio from "@/components/Audio";
 import Subsection from "@/components/Subsection";
 
-function Compositions() {
+// --------------------------------------------------------------------
+//                            Interfaces
+// --------------------------------------------------------------------
+
+function Compositions({ data }) {
+  const { heroImage, heroText, subsectionText, works } = data.compositionsPage[0]
+
+  console.log("hero", works)
+
   return (
     <div>
       {/* ---------- Hero section ---------- */}
-      <Hero pageTitle="This is the 'Compositions' page" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit obcaecati voluptates, omnis cumque placeat quidem, dicta culpa perspiciatis vitae aperiam provident modi rerum tempore voluptate ipsa, officia error reprehenderit corrupti." src="/images/placeholder-1.jpg" alt="placeholder image" />
+      <Hero pageTitle={heroText.page_title} description={heroText.description} src={heroImage.hero_image.asset.url} alt={heroImage.hero_image.alt_text} />
 
       {/* ---------- Works ---------- */}
       <div className="works">
-        {/* ----- Text container ----- */}
-        {/* <div className="text-container">
-          <h2>Works</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit obcaecati voluptates, omnis cumque placeat quidem, dicta culpa perspiciatis vitae aperiam provident modi rerum tempore voluptate ipsa, officia error reprehenderit corrupti.</p>
-        </div> */}
-        <Subsection subsectionTitle="My works" description="I describe my works here" src={null} alt="" />
+        
+        <Subsection subsectionTitle={subsectionText.subsection1_title} description={subsectionText.subsection1_description} src={null} alt="" />
 
         {/* ----- Works ----- */}
         <div className="works-container">
