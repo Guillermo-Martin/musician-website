@@ -57,6 +57,11 @@ export const compositionsType = defineType({
               type: 'string'
             },
             {
+              name: 'description',
+              title: 'Description',
+              type: 'string'
+            },
+            {
               name: 'date',
               title: 'Date',
               type: 'string'

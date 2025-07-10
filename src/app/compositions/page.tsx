@@ -15,7 +15,7 @@ const COMPOSITIONS_PAGE_QUERY = defineQuery(`{
     'heroText': {page_title, short_description},
     'heroImage': {hero_image {asset -> {url}, alt_text}},
     'subsectionText': {subsection1_title, subsection1_description},
-    "works": works[]{title, audio_file {asset -> {url}}}
+    "works": works[]{title, description, date, audio_file {asset -> {url}}}
   }
 }`);
 
