@@ -12,6 +12,27 @@ function Compositions({ data }) {
 
   console.log("hero", works)
 
+  // loop through works and create a "works" section
+  const allWorks = works.map(work => {
+    return (
+      <div className="work">
+        {/* Title and year */}
+        <div>
+          <h3>{work.title}</h3>
+          <p>Year</p>
+        </div>
+
+        {/* Description and player */}
+        {/* <div>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero eius, quidem quas sequi rem provident aspernatur nisi! Necessitatibus, maxime. Et ea quia, libero fugiat labore totam temporibus nulla fuga alias?</p>
+          <audio controls src={null}></audio>
+        </div> */}
+        <Audio src={work.audio_file.asset.url} description={work.title} />
+      </div>
+    );
+  });
+
+
   return (
     <div>
       {/* ---------- Hero section ---------- */}
@@ -19,59 +40,10 @@ function Compositions({ data }) {
 
       {/* ---------- Works ---------- */}
       <div className="works">
-        
         <Subsection subsectionTitle={subsectionText.subsection1_title} description={subsectionText.subsection1_description} src={null} alt="" />
 
         {/* ----- Works ----- */}
-        <div className="works-container">
-          {/* Work */}
-          <div className="work">
-            {/* Title and year */}
-            <div>
-              <h3>Title of work</h3>
-              <p>Year</p>
-            </div>
-
-            {/* Description and player */}
-            {/* <div>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero eius, quidem quas sequi rem provident aspernatur nisi! Necessitatibus, maxime. Et ea quia, libero fugiat labore totam temporibus nulla fuga alias?</p>
-              <audio controls src={null}></audio>
-            </div> */}
-            <Audio />
-          </div>
-
-          {/* Work */}
-          <div className="work">
-            {/* Title and year */}
-            <div>
-              <h3>Title of work</h3>
-              <p>Year</p>
-            </div>
-
-            {/* Description and player */}
-            {/* <div>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero eius, quidem quas sequi rem provident aspernatur nisi! Necessitatibus, maxime. Et ea quia, libero fugiat labore totam temporibus nulla fuga alias?</p>
-              <audio controls src={null}></audio>
-            </div> */}
-            <Audio />
-          </div>
-
-          {/* Work */}
-          <div className="work">
-            {/* Title and year */}
-            <div>
-              <h3>Title of work</h3>
-              <p>Year</p>
-            </div>
-
-            {/* Description and player */}
-            {/* <div>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero eius, quidem quas sequi rem provident aspernatur nisi! Necessitatibus, maxime. Et ea quia, libero fugiat labore totam temporibus nulla fuga alias?</p>
-              <audio controls src={null}></audio>
-            </div> */}
-            <Audio />
-          </div>
-        </div>
+        <div className="works-container">{allWorks}</div>
       </div>
     </div>
   );

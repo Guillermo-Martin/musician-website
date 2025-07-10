@@ -1,8 +1,8 @@
-function Audio() {
+function Audio({ src, description }) {
   return (
     <div>
-      <p>This is the audio description.</p>
-      <audio controls src={null}></audio>
+      <p>{description}</p>
+      <audio controls src={src}></audio>
     </div>
   );
 };
