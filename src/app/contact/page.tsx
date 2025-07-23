@@ -25,7 +25,7 @@ async function ContactPage() {
 
   console.log("here's your data for contacts", data);
 
-  return <Contact />
+  return <Contact data={data} />
 };
 
 export default ContactPage;

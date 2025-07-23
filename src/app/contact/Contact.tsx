@@ -1,14 +1,20 @@
-function Contact() {
+function Contact({ data }) {
+  const { heroText, socials } = data.contactPage[0];
+
+  // console.log("hero text", heroText)
+  // console.log("socials", socials)
+
   return (
     <div>
-      <h1>Contact page</h1>
+      <h1>{heroText.page_title}</h1>
 
       {/* ---------- Form container ---------- */}
       <div className="form-container">
         {/* ----- Message and socials ----- */}
         <div>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos pariatur odio, ratione sequi reprehenderit repellat ea voluptatum fuga sint facere esse voluptatibus, illum nam similique, quam illo nulla excepturi. Eum!</p>
-          <p>Socials go here</p>
+          <p>{heroText.short_description}</p>
+          <a href={socials[0].href}>{socials[0].social_media}</a>
+          <a href={socials[1].href}>{socials[1].social_media}</a>
         </div>
 
         {/* ----- Form ----- */}
