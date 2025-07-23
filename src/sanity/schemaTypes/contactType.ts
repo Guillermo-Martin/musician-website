@@ -24,6 +24,26 @@ export const contactType = defineType({
       name: "short_description",
       type: "string",
     }),
+    defineField({
+      name: "socials",
+      title: "Socials",
+      type: "array",
+      of: [{
+        type: "object",
+        fields: [
+          {
+            name: "social_media",
+            title: "Social Media",
+            type: "string"
+          },
+          {
+            name: "href",
+            title: "Social media link",
+            type: "string"
+          },
+        ]
+      }]
+    }),
     // * the defineField below is for being able to query all pages to make links
     defineField({
       name: "pageType",
