@@ -30,10 +30,10 @@ interface CompositionsProps {
         date: string;
         description: string;
         title: string;
-      }[]
+      }[];
     }[]
   }
-}
+};
 
 // --------------------------------------------------------------------
 //                            Component

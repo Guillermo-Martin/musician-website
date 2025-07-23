@@ -1,4 +1,17 @@
-function Audio({ src, title, date, description }) {
+// --------------------------------------------------------------------
+//                            Interfaces
+// --------------------------------------------------------------------
+interface AudioProps {
+  src: string;
+  title: string;
+  date: string;
+  description: string;
+};
+
+// --------------------------------------------------------------------
+//                            Component
+// --------------------------------------------------------------------
+function Audio({ src, title, date, description }: AudioProps) {
   return (
     <div>
       {/* ---------- Title and year ---------- */}
