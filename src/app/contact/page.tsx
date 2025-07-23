@@ -23,7 +23,7 @@ async function ContactPage() {
   // query Sanity to get data and pass as props to "Contact" component
   const { data } = await sanityFetch({ query: CONTACT_PAGE_QUERY });
 
-  console.log("here's your data for contacts", data);
+  // console.log("here's your data for contacts", data);
 
   return <Contact data={data} />
 };

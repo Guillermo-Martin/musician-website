@@ -1,4 +1,25 @@
-function Contact({ data }) {
+// --------------------------------------------------------------------
+//                            Interfaces
+// --------------------------------------------------------------------
+interface ContactProps {
+  data: {
+    contactPage: {
+      heroText: {
+        page_title: string;
+        short_description: string;
+      },
+      socials: {
+        href: string;
+        social_media: string;
+      }[]
+    }[]
+  }
+};
+
+// --------------------------------------------------------------------
+//                            Component
+// --------------------------------------------------------------------
+function Contact({ data }: ContactProps) {
   const { heroText, socials } = data.contactPage[0];
 
   // console.log("hero text", heroText)
