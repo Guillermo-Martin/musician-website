@@ -25,7 +25,7 @@ export const ethnomusicologyType = defineType({
       type: "string",
     }),
     defineField({
-      name: "image",
+      name: "hero_image",
       title: "Hero image",
       type: "image",
       fields: [
