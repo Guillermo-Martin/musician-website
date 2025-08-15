@@ -1,60 +1,26 @@
 import Image from "next/image";
 
 function Ethnomusicology({ data }) {
-  // console.log("data", data.ethnomusicologyPage[0]);
-  // console.log("data", data.ethnomusicologyPage[0].heroImage.hero_image);
-
+  // destructure hero information
   const { heroImage, heroText } = data.ethnomusicologyPage[0];
 
-  // abstracts
-  const abstracts = data.ethnomusicologyPage[0]["section-1-works"];
-  // console.log(abstracts)
+  // function to generate items to be rendered in each section
+  const listItems = (arr) => {
+    return arr.map(item => {
+      return (
+        <div key={item.title}>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </div>
+      )
+    })
+  };
 
-  const allAbstracts = abstracts.map(abstract => {
-    return (
-      <div>
-        <h3>{abstract.title}</h3>
-        <p>{abstract.description}</p>
-      </div>
-    );
-  });
-
-
-  // publications
-  const publications = data.ethnomusicologyPage[0]["section-2-works"];
-
-  const allPublications = publications.map(publication => {
-    return (
-      <div>
-        <h3>{publication.title}</h3>
-        <p>{publication.description}</p>
-      </div>
-    );
-  });
-
-  // conference papers
-  const conferencePapers = data.ethnomusicologyPage[0]["section-3-works"];
-
-  const allConferencePapers = conferencePapers.map(paper => {
-    return (
-      <div>
-        <h3>{paper.title}</h3>
-        <p>{paper.description}</p>
-      </div>
-    );
-  });
-
-  // courses taught
-  const courses = data.ethnomusicologyPage[0]["section-4-works"];
-
-  const allCourses = courses.map(course => {
-    return (
-      <div>
-        <h3>{course.title}</h3>
-        <p>{course.description}</p>
-      </div>
-    );
-  });
+  // abstracts, publiations, conference papers, and courses JSX elements
+  const allAbstracts = listItems(data.ethnomusicologyPage[0]["section-1-works"]);
+  const allPublications = listItems(data.ethnomusicologyPage[0]["section-2-works"]);
+  const allConferencePapers = listItems(data.ethnomusicologyPage[0]["section-3-works"]);
+  const allCourses = listItems(data.ethnomusicologyPage[0]["section-4-works"]);
 
   return (
     <div>
