@@ -1,96 +1,107 @@
 import Image from "next/image";
 
-function Ethnomusicology() {
+function Ethnomusicology({ data }) {
+  // console.log("data", data.ethnomusicologyPage[0]);
+  // console.log("data", data.ethnomusicologyPage[0].heroImage.hero_image);
+
+  const { heroImage, heroText } = data.ethnomusicologyPage[0];
+
+  // abstracts
+  const abstracts = data.ethnomusicologyPage[0]["section-1-works"];
+  // console.log(abstracts)
+
+  const allAbstracts = abstracts.map(abstract => {
+    return (
+      <div>
+        <h3>{abstract.title}</h3>
+        <p>{abstract.description}</p>
+      </div>
+    );
+  });
+
+
+  // publications
+  const publications = data.ethnomusicologyPage[0]["section-2-works"];
+
+  const allPublications = publications.map(publication => {
+    return (
+      <div>
+        <h3>{publication.title}</h3>
+        <p>{publication.description}</p>
+      </div>
+    );
+  });
+
+  // conference papers
+  const conferencePapers = data.ethnomusicologyPage[0]["section-3-works"];
+
+  const allConferencePapers = conferencePapers.map(paper => {
+    return (
+      <div>
+        <h3>{paper.title}</h3>
+        <p>{paper.description}</p>
+      </div>
+    );
+  });
+
+  // courses taught
+  const courses = data.ethnomusicologyPage[0]["section-4-works"];
+
+  const allCourses = courses.map(course => {
+    return (
+      <div>
+        <h3>{course.title}</h3>
+        <p>{course.description}</p>
+      </div>
+    );
+  });
+
   return (
     <div>
       {/* ---------- Hero section ---------- */}
       <div className="hero-section">
         {/* ----- Text container ----- */}
         <div className="text-container">
-          <h1>Ethnomusicology page</h1>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam nobis esse est. Error sed alias earum ipsum officiis labore veritatis minima repellat tempore laborum eligendi nostrum, laudantium facere aperiam illum.</p>
+          <h1>{heroText.page_title}</h1>
+          <p>{heroText.short_description}</p>
         </div>
         
         {/* ----- Image container ----- */}
         <div className="image-container">
-          <Image src="/images/placeholder-1.jpg" alt="Placeholer image" width={680} height={428} />
+          <Image src={heroImage.hero_image.asset.url} alt={heroImage.hero_image.alt_text} width={680} height={428} />
         </div>
       </div>
 
       {/* ---------- Abstracts ---------- */}
       <div className="abstracts">
-        <h2>Abstracts</h2>
+        <h2>{data.ethnomusicologyPage[0]["section-1-title"]}</h2>
 
         {/* ----- Abstract ----- */}
-        <div>
-          <h3>Abstract title</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nam, veniam maxime voluptate eaque debitis aspernatur dolor minus a porro. Excepturi quaerat vel accusamus neque asperiores veritatis praesentium distinctio harum?</p>
-        </div>
-        <div>
-          <h3>Abstract title</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nam, veniam maxime voluptate eaque debitis aspernatur dolor minus a porro. Excepturi quaerat vel accusamus neque asperiores veritatis praesentium distinctio harum?</p>
-        </div>
-        <div>
-          <h3>Abstract title</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nam, veniam maxime voluptate eaque debitis aspernatur dolor minus a porro. Excepturi quaerat vel accusamus neque asperiores veritatis praesentium distinctio harum?</p>
-        </div>
+        <div>{allAbstracts}</div>
       </div>
 
       {/* ---------- Publications ---------- */}
       <div className="publications">
-        <h2>Publications</h2>
+        <h2>{data.ethnomusicologyPage[0]["section-2-title"]}</h2>
 
         {/* ----- Publication ----- */}
-        <div>
-          <h3>Publication title</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nam, veniam maxime voluptate eaque debitis aspernatur dolor minus a porro. Excepturi quaerat vel accusamus neque asperiores veritatis praesentium distinctio harum?</p>
-        </div>
-        <div>
-          <h3>Publication title</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nam, veniam maxime voluptate eaque debitis aspernatur dolor minus a porro. Excepturi quaerat vel accusamus neque asperiores veritatis praesentium distinctio harum?</p>
-        </div>
-        <div>
-          <h3>Publication title</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nam, veniam maxime voluptate eaque debitis aspernatur dolor minus a porro. Excepturi quaerat vel accusamus neque asperiores veritatis praesentium distinctio harum?</p>
-        </div>
+        <div>{allPublications}</div>
       </div>
 
       {/* ---------- Conference papers ---------- */}
       <div className="conference-papers">
-        <h2>Conference papers</h2>
+        <h2>{data.ethnomusicologyPage[0]["section-3-title"]}</h2>
 
         {/* ----- Conference paper ----- */}
-        <div>
-          <h3>Conference paper title</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nam, veniam maxime voluptate eaque debitis aspernatur dolor minus a porro. Excepturi quaerat vel accusamus neque asperiores veritatis praesentium distinctio harum?</p>
-        </div>
-        <div>
-          <h3>Conference paper title</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nam, veniam maxime voluptate eaque debitis aspernatur dolor minus a porro. Excepturi quaerat vel accusamus neque asperiores veritatis praesentium distinctio harum?</p>
-        </div>
-        <div>
-          <h3>Conference paper title</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nam, veniam maxime voluptate eaque debitis aspernatur dolor minus a porro. Excepturi quaerat vel accusamus neque asperiores veritatis praesentium distinctio harum?</p>
-        </div>
+        <div>{allConferencePapers}</div>
       </div>
 
       {/* ---------- Courses taught ---------- */}
       <div className="courses">
-        <h2>Courses taught</h2>
+        <h2>{data.ethnomusicologyPage[0]["section-4-title"]}</h2>
 
         {/* ----- Course taught ----- */}
-        <div>
-          <h3>Course taught title</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nam, veniam maxime voluptate eaque debitis aspernatur dolor minus a porro. Excepturi quaerat vel accusamus neque asperiores veritatis praesentium distinctio harum?</p>
-        </div>
-        <div>
-          <h3>Course taught title</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nam, veniam maxime voluptate eaque debitis aspernatur dolor minus a porro. Excepturi quaerat vel accusamus neque asperiores veritatis praesentium distinctio harum?</p>
-        </div>
-        <div>
-          <h3>Course taught title</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nam, veniam maxime voluptate eaque debitis aspernatur dolor minus a porro. Excepturi quaerat vel accusamus neque asperiores veritatis praesentium distinctio harum?</p>
-        </div>
+        <div>{allCourses}</div>
       </div>
     </div>
   );

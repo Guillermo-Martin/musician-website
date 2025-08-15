@@ -33,7 +33,7 @@ async function EthnomusicologyPage() {
 
   console.log("Ethnomusicology data", data);
 
-  return <Ethnomusicology />
+  return <Ethnomusicology data={data} />
 };
 
 export default EthnomusicologyPage;
