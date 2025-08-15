@@ -9,23 +9,23 @@ import type { ImageInterface } from "@/interfaces/Interfaces";
 interface AboutProps {
   data: {
     aboutPage: {
-    aboutPageText: {
-      page_title: string;
-      quote: string;
-      subsection1_description: string;
-      subsection1_title: string;
-      subsection2_description: string;
-      subsection2_title: string;
-      subsection3_description: string;
-      subsection3_title: string;
-    };
-    gallery: ImageInterface[];
-    heroImage: {
-      hero_image: ImageInterface;
-    }
-    subsectionImages: ImageInterface[];
-  }[];
-  }
+      aboutPageText: {
+        page_title: string;
+        quote: string;
+        subsection1_description: string;
+        subsection1_title: string;
+        subsection2_description: string;
+        subsection2_title: string;
+        subsection3_description: string;
+        subsection3_title: string;
+      };
+      gallery: ImageInterface[];
+      heroImage: {
+        hero_image: ImageInterface;
+      }
+      subsectionImages: ImageInterface[];
+    }[];
+  };
 };
 
 

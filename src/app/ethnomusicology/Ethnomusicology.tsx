@@ -8,7 +8,7 @@ import type { ImageInterface } from "@/interfaces/Interfaces"
 interface ItemInterface {
   description: string;
   title: string;
-}
+};
 
 interface EthnomusicologyProps {
   data: {
@@ -33,9 +33,10 @@ interface EthnomusicologyProps {
 };
 
 
+// --------------------------------------------------------------------
+//                            Component
+// --------------------------------------------------------------------
 function Ethnomusicology({ data }: EthnomusicologyProps) {
-  console.log(data.ethnomusicologyPage[0]["section-1-works"])
-
   // destructure hero information
   const { heroImage, heroText } = data.ethnomusicologyPage[0];
 
@@ -47,8 +48,8 @@ function Ethnomusicology({ data }: EthnomusicologyProps) {
           <h3>{item.title}</h3>
           <p>{item.description}</p>
         </div>
-      )
-    })
+      );
+    });
   };
 
   // abstracts, publiations, conference papers, and courses JSX elements

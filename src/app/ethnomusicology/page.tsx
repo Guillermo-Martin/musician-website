@@ -31,9 +31,7 @@ async function EthnomusicologyPage() {
   // query Sanity to get data and pass props to "Ethnomusicology" component
   const { data } = await sanityFetch({ query: ETHNOMUSICOLOGY_PAGE_QUERY });
 
-  console.log("Ethnomusicology data", data);
-
-  return <Ethnomusicology data={data} />
+  return <Ethnomusicology data={data} />;
 };
 
 export default EthnomusicologyPage;
