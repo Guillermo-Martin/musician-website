@@ -1,12 +1,47 @@
 import Image from "next/image";
+import type { ImageInterface } from "@/interfaces/Interfaces"
 
-function Ethnomusicology({ data }) {
+
+// --------------------------------------------------------------------
+//                            Interfaces
+// --------------------------------------------------------------------
+interface ItemInterface {
+  description: string;
+  title: string;
+}
+
+interface EthnomusicologyProps {
+  data: {
+    ethnomusicologyPage: {
+      heroImage: {
+        hero_image: ImageInterface;
+      };
+      heroText: {
+        page_title: string;
+        short_description: string;
+      };
+      "section-1-title": string;
+      "section-1-works": ItemInterface[];
+      "section-2-title": string;
+      "section-2-works": ItemInterface[];
+      "section-3-title": string;
+      "section-3-works": ItemInterface[];
+      "section-4-title": string;
+      "section-4-works": ItemInterface[];
+    }[];
+  };
+};
+
+
+function Ethnomusicology({ data }: EthnomusicologyProps) {
+  console.log(data.ethnomusicologyPage[0]["section-1-works"])
+
   // destructure hero information
   const { heroImage, heroText } = data.ethnomusicologyPage[0];
 
   // function to generate items to be rendered in each section
-  const listItems = (arr) => {
-    return arr.map(item => {
+  const listItems = (arr: ItemInterface[]) => {
+    return arr.map((item: ItemInterface) => {
       return (
         <div key={item.title}>
           <h3>{item.title}</h3>
