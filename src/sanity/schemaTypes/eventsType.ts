@@ -45,6 +45,11 @@ export const eventsType = defineType({
           type: "object",
           fields: [
             {
+              name: 'event_name',
+              title: 'Event name',
+              type: 'string',
+            },
+            {
               name: 'date',
               title: 'Date',
               type: 'date',
