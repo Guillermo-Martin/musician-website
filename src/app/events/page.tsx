@@ -1,3 +1,5 @@
+import { defineQuery } from "next-sanity";
+import { sanityFetch } from "@/sanity/lib/live";
 import type { Metadata } from "next";
 import Events from "./Events";
 
@@ -7,8 +9,23 @@ export const metadata: Metadata = {
   description: "Events"
 }
 
+// ---------- Query to Sanity ----------
+const EVENTS_PAGE_QUERY = defineQuery(`{
+  'eventsPage': *[_type == 'eventsPage' && !(_id in path('drafts.**'))]{
+    'heroText': {page_title, short_description},
+    'heroImage': {hero_image {asset -> {url}, alt_text}},
+    'upcomingEvents': upcoming_events[]{date, time, location, description, link}
+	 }
+}`);
+
+
+
 // ---------- Page ----------
-function EventsPage() {
+async function EventsPage() {
+  const { data } = await sanityFetch({ query: EVENTS_PAGE_QUERY });
+
+  console.log("EVENTS PAGE DATA", data)
+
   return <Events />
 };
 
