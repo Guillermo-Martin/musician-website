@@ -1,6 +1,43 @@
 import Image from "next/image";
+import type { ImageInterface } from "@/interfaces/Interfaces";
 
-function Events() {
+// --------------------------------------------------------------------
+//                            Interfaces
+// --------------------------------------------------------------------
+interface EventsProps {
+  data: {
+    eventsPage: {
+      heroImage: {
+        hero_image: ImageInterface;
+      };
+      heroText: {
+        page_title: string;
+        short_description: string;
+      };
+      upcomingEvents: {
+        date: string;
+        description: string;
+        link: string | null;
+        location: string;
+        time: string;
+      }[];
+    }[];
+  };
+};
+
+
+
+
+
+
+
+// --------------------------------------------------------------------
+//                            Component
+// --------------------------------------------------------------------
+function Events({ data }: EventsProps) {
+
+  console.log("in Events component", data);
+
   return (
     <div>
       {/* ---------- Hero section ---------- */}

@@ -22,11 +22,10 @@ const EVENTS_PAGE_QUERY = defineQuery(`{
 
 // ---------- Page ----------
 async function EventsPage() {
+  // query Sanity to get data and pass props to "Events" component
   const { data } = await sanityFetch({ query: EVENTS_PAGE_QUERY });
 
-  console.log("EVENTS PAGE DATA", data)
-
-  return <Events />
+  return <Events data={data} />
 };
 
 export default EventsPage;
