@@ -15,6 +15,7 @@ interface EventsProps {
         short_description: string;
       };
       upcomingEvents: {
+        event_name: string;
         date: string;
         description: string;
         link: string | null;
@@ -26,17 +27,27 @@ interface EventsProps {
 };
 
 
-
-
-
-
-
 // --------------------------------------------------------------------
 //                            Component
 // --------------------------------------------------------------------
 function Events({ data }: EventsProps) {
-
-  console.log("in Events component", data);
+  // destructure hero information and get all upcoming events
+  const { heroImage, heroText } = data.eventsPage[0];
+  const upcomingEvents = data.eventsPage[0].upcomingEvents;
+  
+  // for every upcoming event, create a div with all the info
+  const allUpcomingEvents = upcomingEvents.map(event => {
+    return (
+      <div key={event.event_name}>
+        <h3>{event.event_name}</h3>
+        <p>{event.date}</p>
+        <p>{event.time}</p>
+        <p>{event.location}</p>
+        <p>{event.description}</p>
+        {event.link ? <p>Buy tickets here: {event.link}</p> : null}
+      </div>
+    );
+  });
 
   return (
     <div>
@@ -44,47 +55,23 @@ function Events({ data }: EventsProps) {
       <div className="hero-section">
         {/* ----- Text container ----- */}
         <div className="text-container">
-          <h1>Events page</h1>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam nobis esse est. Error sed alias earum ipsum officiis labore veritatis minima repellat tempore laborum eligendi nostrum, laudantium facere aperiam illum.</p>
+          <h1>{heroText.page_title}</h1>
+          <p>{heroText.short_description}</p>
         </div>
         
         {/* ----- Image container ----- */}
         <div className="image-container">
-          <Image src="/images/placeholder-1.jpg" alt="Placeholer image" width={680} height={428} />
+          <Image src={heroImage.hero_image.asset.url} alt={heroImage.hero_image.alt_text} width={680} height={428} />
         </div>
       </div>
 
-      {/* ---------- Events section ---------- */}
-      <div className="events">
-        {/* ----- Event ----- */}
-        <div>
-          <h2>Event</h2>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A ipsa cupiditate consectetur maiores laudantium fugiat voluptatibus necessitatibus. Aliquid iste voluptatum culpa dicta deleniti dolorem assumenda quod consequuntur, ipsum cumque commodi!</p>
-        </div>
-        {/* ----- Event ----- */}
-        <div>
-          <h2>Event</h2>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A ipsa cupiditate consectetur maiores laudantium fugiat voluptatibus necessitatibus. Aliquid iste voluptatum culpa dicta deleniti dolorem assumenda quod consequuntur, ipsum cumque commodi!</p>
-        </div>
-        {/* ----- Event ----- */}
-        <div>
-          <h2>Event</h2>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A ipsa cupiditate consectetur maiores laudantium fugiat voluptatibus necessitatibus. Aliquid iste voluptatum culpa dicta deleniti dolorem assumenda quod consequuntur, ipsum cumque commodi!</p>
-        </div>
-        {/* ----- Event ----- */}
-        <div>
-          <h2>Event</h2>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A ipsa cupiditate consectetur maiores laudantium fugiat voluptatibus necessitatibus. Aliquid iste voluptatum culpa dicta deleniti dolorem assumenda quod consequuntur, ipsum cumque commodi!</p>
-        </div>
-        {/* ----- Event ----- */}
-        <div>
-          <h2>Event</h2>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A ipsa cupiditate consectetur maiores laudantium fugiat voluptatibus necessitatibus. Aliquid iste voluptatum culpa dicta deleniti dolorem assumenda quod consequuntur, ipsum cumque commodi!</p>
-        </div>
+      {/* ---------- Upcoming events section ---------- */}
+      <div className="upcoming-events">
+        <h2>Upcoming events</h2>
+        <div className="events">{allUpcomingEvents}</div>
       </div>
     </div>
   );
 };
 
 export default Events;
-

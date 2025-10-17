@@ -14,7 +14,7 @@ const EVENTS_PAGE_QUERY = defineQuery(`{
   'eventsPage': *[_type == 'eventsPage' && !(_id in path('drafts.**'))]{
     'heroText': {page_title, short_description},
     'heroImage': {hero_image {asset -> {url}, alt_text}},
-    'upcomingEvents': upcoming_events[]{date, time, location, description, link}
+    'upcomingEvents': upcoming_events[]{event_name, date, time, location, description, link}
 	 }
 }`);
 
