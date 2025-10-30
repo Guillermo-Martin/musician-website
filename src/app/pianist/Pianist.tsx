@@ -1,14 +1,6 @@
 import Image from "next/image";
 import type { ImageInterface } from "@/interfaces/Interfaces";
 
-// example (eventually replace with fetched data from Sanity)
-// const videoLinks = [
-//   "https://youtu.be/1yfxp1NhLIs?si=TedHUzcuviVe9pM-",
-//   "https://youtu.be/FYS1pGUFUlo?si=4N44i1445ntwdndM",
-//   "https://youtu.be/8eOTsaz_Gb4?si=KaJ5UAv4ZaMqGAdr",
-//   "https://youtu.be/JoMLoPYbbns?si=SFdf2KmYlVOhySEi"
-// ]
-
 // --------------------------------------------------------------------
 //                            Interfaces
 // --------------------------------------------------------------------
@@ -49,8 +41,6 @@ interface PianistProps {
 
 
 function Pianist({ data }: PianistProps) {
-  // console.log("in Pianist page", data.pianistPage[0].cds)
-  
   // destructure hero information
   const { heroImage, heroText, performances, cds } = data.pianistPage[0];
 
@@ -116,37 +106,6 @@ function Pianist({ data }: PianistProps) {
         </div>
       </div>
 
-      {/* ---------- Audio section ---------- */}
-      <div className="audio-section">
-        {/* ----- Text container ----- */}
-        <div>
-          <h2>Audio</h2>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas maxime accusantium ex eaque quaerat, et, hic tempora corporis eius libero neque sint tenetur excepturi quod, consequuntur nihil perferendis sapiente necessitatibus.</p>
-        </div>
-
-        {/* ----- Audio container ----- */}
-        <div>
-          {/* <ul>
-            <li>
-              <h3>Title</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores iste quas mollitia maxime quam, iure in eligendi perspiciatis eos eveniet aperiam quibusdam facere alias veritatis facilis amet? Nulla, omnis architecto.</p>
-              <audio controls src={null}></audio>
-            </li>
-            <li>
-              <h3>Title</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores iste quas mollitia maxime quam, iure in eligendi perspiciatis eos eveniet aperiam quibusdam facere alias veritatis facilis amet? Nulla, omnis architecto.</p>
-              <audio controls src={null}></audio>
-            </li>
-            <li>
-              <h3>Title</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores iste quas mollitia maxime quam, iure in eligendi perspiciatis eos eveniet aperiam quibusdam facere alias veritatis facilis amet? Nulla, omnis architecto.</p>
-              <audio controls src={null}></audio>
-            </li>
-          </ul> */}
-          {allCds}
-        </div>
-      </div>
-
       {/* ---------- Performances section ---------- */}
       <div className="performances-section">
         {/* ----- Text container ----- */}
@@ -156,26 +115,7 @@ function Pianist({ data }: PianistProps) {
         </div>
 
         {/* ----- Videos container ----- */}
-        <div>
-          {/* <div>
-            <p>Video title</p>
-            <Image src="/images/placeholder-1.jpg" alt="Placeholer image" width={680} height={428} />
-          </div>
-          <div>
-            <p>Video title</p>
-            <Image src="/images/placeholder-1.jpg" alt="Placeholer image" width={680} height={428} />
-          </div>
-          <div>
-            <p>Video title</p>
-            <Image src="/images/placeholder-1.jpg" alt="Placeholer image" width={680} height={428} />
-          </div>
-          <div>
-            <p>Video title</p>
-            <Image src="/images/placeholder-1.jpg" alt="Placeholer image" width={680} height={428} />
-          </div> */}
-          {/* ----- Youtube videos ----- */}
-          <div>{allVideos}</div>
-        </div>
+        <div>{allVideos}</div>
       </div>
 
       {/* ---------- CDs section ---------- */}
@@ -187,21 +127,7 @@ function Pianist({ data }: PianistProps) {
         </div>
         
         {/* ----- CD container ----- */}
-        <div>
-          {/* CD */}
-          <div>
-            <Image src="/images/placeholder-1.jpg" alt="Placeholer image" width={680} height={428} />
-            <h3>CD title</h3>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas maxime accusantium ex eaque quaerat, et, hic tempora corporis eius libero neque sint tenetur excepturi quod, consequuntur nihil perferendis sapiente necessitatibus.</p>
-          </div>
-          {/* CD */}
-          <div>
-            <Image src="/images/placeholder-1.jpg" alt="Placeholer image" width={680} height={428} />
-            <h3>CD title</h3>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas maxime accusantium ex eaque quaerat, et, hic tempora corporis eius libero neque sint tenetur excepturi quod, consequuntur nihil perferendis sapiente necessitatibus.</p>
-          </div>
-        </div>
-
+        <div>{allCds}</div>
       </div>
     </div>
   );
