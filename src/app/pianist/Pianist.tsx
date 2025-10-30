@@ -12,30 +12,43 @@ import type { ImageInterface } from "@/interfaces/Interfaces";
 // --------------------------------------------------------------------
 //                            Interfaces
 // --------------------------------------------------------------------
-// interface PianistProps {
-//   data: {
-//     pianistPage: {
-//       heroImage: {
-//         hero_image: ImageInterface;
-//       };
-//       heroText: {
-//         page_title: string;
-//         short_description: string;
-//       };
-//       cds: {
-//         cd_image: ImageInterface;
-//         songs: {
-//           audio: {
+interface PianistProps {
+  data: {
+    pianistPage: {
+      heroImage: {
+        hero_image: ImageInterface;
+      };
+      heroText: {
+        page_title: string;
+        short_description: string;
+      };
+      cds: {
+        cd_image: ImageInterface;
+        songs: {
+          audio: {
+            asset: {
+              url: string;
+            };
+            title: string;
+            _key: string;
+          };
+          title: string;
+          _key: string;
+        }[];
+        title: string;
+        _key: string;
+      }[];
+      performances: {
+        title: string;
+        youtube_share_link: string;
+        _key: string;
+      }[];
+    }[];
+  };
+};
 
-//           }
-//         }[]
-//       }[]
-//     }[];
-//   }
-// }
 
-
-function Pianist({data}) {
+function Pianist({ data }: PianistProps) {
   console.log("in Pianist page", data)
 
   // const allVideos = videoLinks.map(link => {
