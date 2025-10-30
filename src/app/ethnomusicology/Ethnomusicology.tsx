@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { ImageInterface } from "@/interfaces/Interfaces"
+import type { ImageInterface } from "@/interfaces/Interfaces";
 
 
 // --------------------------------------------------------------------

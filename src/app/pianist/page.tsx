@@ -15,7 +15,7 @@ const PIANIST_PAGE_QUERY = defineQuery(`{
     'heroText': {page_title, short_description},
     'heroImage': {hero_image {asset -> {url}, alt_text}},
     'performances': performances[]{_key, title, youtube_share_link},
-    'cds': cds[]{_key, title, cd_image, songs}
+    'cds': cds[]{_key, title, cd_image, songs[]{_key, title, audio {asset -> {url}}}}
   }
 }`);
 
@@ -24,9 +24,9 @@ async function PianistPage() {
   // query Sanity to get data and pass props to "Pianist" component
   const { data } = await sanityFetch({ query: PIANIST_PAGE_QUERY });
 
-  console.log("pianist data", data)
+  // console.log("pianist data", data)
 
-  return <Pianist />
+  return <Pianist data={data} />;
 };
 
 export default PianistPage;

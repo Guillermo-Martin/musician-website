@@ -1,35 +1,62 @@
 import Image from "next/image";
-
+import type { ImageInterface } from "@/interfaces/Interfaces";
 
 // example (eventually replace with fetched data from Sanity)
-const videoLinks = [
-  "https://youtu.be/1yfxp1NhLIs?si=TedHUzcuviVe9pM-",
-  "https://youtu.be/FYS1pGUFUlo?si=4N44i1445ntwdndM",
-  "https://youtu.be/8eOTsaz_Gb4?si=KaJ5UAv4ZaMqGAdr",
-  "https://youtu.be/JoMLoPYbbns?si=SFdf2KmYlVOhySEi"
-]
+// const videoLinks = [
+//   "https://youtu.be/1yfxp1NhLIs?si=TedHUzcuviVe9pM-",
+//   "https://youtu.be/FYS1pGUFUlo?si=4N44i1445ntwdndM",
+//   "https://youtu.be/8eOTsaz_Gb4?si=KaJ5UAv4ZaMqGAdr",
+//   "https://youtu.be/JoMLoPYbbns?si=SFdf2KmYlVOhySEi"
+// ]
+
+// --------------------------------------------------------------------
+//                            Interfaces
+// --------------------------------------------------------------------
+// interface PianistProps {
+//   data: {
+//     pianistPage: {
+//       heroImage: {
+//         hero_image: ImageInterface;
+//       };
+//       heroText: {
+//         page_title: string;
+//         short_description: string;
+//       };
+//       cds: {
+//         cd_image: ImageInterface;
+//         songs: {
+//           audio: {
+
+//           }
+//         }[]
+//       }[]
+//     }[];
+//   }
+// }
 
 
-function Pianist() {
-  const allVideos = videoLinks.map(link => {
-    // get the youtube video id from the share link
-    // 1. split the link by "https://youtu.be/"
-    //    - you'll get an array that looks like: ["https://youtu.be/", "1yfxp1NhLIs?si=TedHUzcuviVe9pM-"]
-    // 2. next, get the second half of the link (which is index 1)
-    // 3. split that string by "?".
-    //    - you'll get an array that looks like: ["1yfxp1NhLIs", "si=TedHUzcuviVe9pM-"]
-    //    - the string at index 0 is the video id
-    const youTubeVideoId = link.split("https://youtu.be/")[1].split("?")[0]
+function Pianist({data}) {
+  console.log("in Pianist page", data)
 
-    // create the youtube embed link
-    // YouTube embed url for iframe: https://developers.google.com/youtube/player_parameters#:~:text=AI%2Dgenerated%20Key%20Takeaways,listType%20parameters%20in%20the%20URL.
-    let youTubeEmbedLink = `https://www.youtube.com/embed/${youTubeVideoId}`
+  // const allVideos = videoLinks.map(link => {
+  //   // get the youtube video id from the share link
+  //   // 1. split the link by "https://youtu.be/"
+  //   //    - you'll get an array that looks like: ["https://youtu.be/", "1yfxp1NhLIs?si=TedHUzcuviVe9pM-"]
+  //   // 2. next, get the second half of the link (which is index 1)
+  //   // 3. split that string by "?".
+  //   //    - you'll get an array that looks like: ["1yfxp1NhLIs", "si=TedHUzcuviVe9pM-"]
+  //   //    - the string at index 0 is the video id
+  //   const youTubeVideoId = link.split("https://youtu.be/")[1].split("?")[0]
 
-    // add the youTubeEmbedLink to the youtube's iframe
-    return (
-      <iframe width="560" height="315" src={youTubeEmbedLink} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    );
-  });
+  //   // create the youtube embed link
+  //   // YouTube embed url for iframe: https://developers.google.com/youtube/player_parameters#:~:text=AI%2Dgenerated%20Key%20Takeaways,listType%20parameters%20in%20the%20URL.
+  //   let youTubeEmbedLink = `https://www.youtube.com/embed/${youTubeVideoId}`
+
+  //   // add the youTubeEmbedLink to the youtube's iframe
+  //   return (
+  //     <iframe width="560" height="315" src={youTubeEmbedLink} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  //   );
+  // });
 
 
   return (
@@ -48,7 +75,7 @@ function Pianist() {
         </div>
 
         {/* ----- Youtube videos ----- */}
-        <div>{allVideos}</div>
+        {/* <div>{allVideos}</div> */}
       </div>
 
       {/* ---------- Audio section ---------- */}
