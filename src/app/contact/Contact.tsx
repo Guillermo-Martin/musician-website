@@ -22,8 +22,14 @@ interface ContactProps {
 function Contact({ data }: ContactProps) {
   const { heroText, socials } = data.contactPage[0];
 
-  // console.log("hero text", heroText)
-  // console.log("socials", socials)
+
+  const allSocials = socials.map(social => {
+    return (
+      <div key={social.social_media}>
+        <a href={social.href}>{social.social_media}</a>
+      </div>
+    );
+  });
 
   return (
     <div>
@@ -34,8 +40,7 @@ function Contact({ data }: ContactProps) {
         {/* ----- Message and socials ----- */}
         <div>
           <p>{heroText.short_description}</p>
-          <a href={socials[0].href}>{socials[0].social_media}</a>
-          <a href={socials[1].href}>{socials[1].social_media}</a>
+          <div>{allSocials}</div>
         </div>
 
         {/* ----- Form ----- */}
