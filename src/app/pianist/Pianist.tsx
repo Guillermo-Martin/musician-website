@@ -73,7 +73,7 @@ function Pianist({ data }: PianistProps) {
     // for each song in a cd, create an audio player
     const cdSongs = cd.songs.map(song => {
       return (
-        <div>
+        <div key={song.title}>
           <h6>{song.title}</h6>
           <audio controls src={song.audio.asset.url}></audio>
         </div>
@@ -81,7 +81,7 @@ function Pianist({ data }: PianistProps) {
     });
 
     return (
-      <div>
+      <div key={cd._key}>
         <Image src={cd.cd_image.asset.url} alt={cd.cd_image.alt_text} width={680} height={428} />
         <h5>{cd.title}</h5>
         <div>{cdSongs}</div>
