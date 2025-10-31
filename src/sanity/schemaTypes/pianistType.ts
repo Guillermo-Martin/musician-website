@@ -76,7 +76,13 @@ export const pianistType = defineType({
             {
               name: 'cd_image',
               title: 'CD image',
-              type: 'image'
+              type: 'image',
+              fields: [
+                {
+                  name: "alt_text",
+                  type: "string"
+                }
+              ]
             },
             {
               name: "songs",

@@ -82,7 +82,7 @@ function Pianist({ data }: PianistProps) {
 
     return (
       <div>
-        <Image src={cd.cd_image.asset.url} alt="Placeholer image" width={680} height={428} />
+        <Image src={cd.cd_image.asset.url} alt={cd.cd_image.alt_text} width={680} height={428} />
         <h5>{cd.title}</h5>
         <div>{cdSongs}</div>
       </div>

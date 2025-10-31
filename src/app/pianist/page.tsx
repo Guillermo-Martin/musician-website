@@ -15,7 +15,7 @@ const PIANIST_PAGE_QUERY = defineQuery(`{
     'heroText': {page_title, short_description},
     'heroImage': {hero_image {asset -> {url}, alt_text}},
     'performances': performances[]{_key, title, youtube_share_link},
-    'cds': cds[]{_key, title, cd_image {asset -> {url}}, songs[]{_key, title, audio {asset -> {url}}}}
+    'cds': cds[]{_key, title, cd_image {asset -> {url}, alt_text}, songs[]{_key, title, audio {asset -> {url}}}}
   }
 }`);
 
