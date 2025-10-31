@@ -20,6 +20,7 @@ interface HomeContentProps {
 //                            Component
 // --------------------------------------------------------------------
 function HomeContent({ data }: HomeContentProps) {
+  console.log("in home", data)
   // for every slug, get the page title and the "current" slug, and make an "li" element
   // containing a Link component
   const navLinks = data.slugs.map((slug: Slug) => {
@@ -33,9 +34,9 @@ function HomeContent({ data }: HomeContentProps) {
       <h1>{data.homepage[0].page_title}</h1>
 
       {/* Sidenav */}
-      <nav className="navbar">
+      {/* <nav className="navbar">
         <ul>{navLinks}</ul>
-      </nav>
+      </nav> */}
 
       <main>
         {/* Image */}

@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type { Slug } from "@/interfaces/Interfaces";
 
 // --------------------------------------------------------------------
@@ -13,7 +16,7 @@ interface NavbarProps {
 //                            Component
 // --------------------------------------------------------------------
 function Navbar({ links }: NavbarProps) {
-  // console.log(links)
+  const pathName = usePathname();
 
   // for every slug, in the "links" array, create a link
   const navLinks = links.map((slug: Slug) => {
@@ -23,7 +26,7 @@ function Navbar({ links }: NavbarProps) {
   });
 
   return (
-    <nav>
+    <nav className={pathName === "/" ? "homepage" : "navbar"}>
       <ul>{navLinks}</ul>
     </nav>
   );
