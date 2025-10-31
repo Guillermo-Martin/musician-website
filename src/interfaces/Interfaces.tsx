@@ -12,10 +12,12 @@ export interface Homepage {
 };
 
 export interface Slug {
-  page_title: string;
-  slug: {
-    current: string;
-  };
+  // page_title: string;
+  // slug: {
+  //   current: string;
+  // };
+  pageTitle: string;
+  link: string;
 };
 
 export interface ImageInterface {

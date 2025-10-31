@@ -13,10 +13,12 @@ interface NavbarProps {
 //                            Component
 // --------------------------------------------------------------------
 function Navbar({ links }: NavbarProps) {
+  // console.log(links)
+
   // for every slug, in the "links" array, create a link
   const navLinks = links.map((slug: Slug) => {
     return (
-      <li key={slug.page_title}><Link href={slug.slug.current}>{slug.page_title}</Link></li>
+      <li key={slug.pageTitle}><Link href={slug.link}>{slug.pageTitle}</Link></li>
     );
   });
 
