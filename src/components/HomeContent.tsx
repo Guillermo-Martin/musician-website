@@ -37,7 +37,7 @@ function HomeContent({ data }: HomeContentProps) {
       </main>
 
       {/* ---------- Footer ---------- */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

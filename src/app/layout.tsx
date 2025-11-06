@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { defineQuery } from "next-sanity";
 import { sanityFetch } from "@/sanity/lib/live";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import "./globals.css";
 // ---------- Sanity ----------
 import { SanityLive } from "@/sanity/lib/live";
@@ -57,6 +58,8 @@ export default async function RootLayout({
 
         {/* ---------- Sanity ---------- */}
         <SanityLive />
+
+        <Footer />
       </body>
     </html>
   );

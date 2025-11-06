@@ -1,8 +1,8 @@
 function Footer(){
   return (
-    <div>
-      <p>This is a footer!</p>
-    </div>
+    <footer className="footer">
+      <p>Copyright 2025. Footer information goes here.</p>
+    </footer>
   );
 };
 
