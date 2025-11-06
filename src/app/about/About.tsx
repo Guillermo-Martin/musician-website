@@ -1,37 +1,8 @@
 import Image from "next/image";
 import Hero from "@/components/Hero";
 import Subsection from "@/components/Subsection";
-import type { ImageInterface } from "@/interfaces/Interfaces";
+import type { ImageInterface, AboutProps } from "@/interfaces/Interfaces";
 
-// --------------------------------------------------------------------
-//                            Interfaces
-// --------------------------------------------------------------------
-interface AboutProps {
-  data: {
-    aboutPage: {
-      aboutPageText: {
-        page_title: string;
-        quote: string;
-        subsection1_description: string;
-        subsection1_title: string;
-        subsection2_description: string;
-        subsection2_title: string;
-        subsection3_description: string;
-        subsection3_title: string;
-      };
-      gallery: ImageInterface[];
-      heroImage: {
-        hero_image: ImageInterface;
-      }
-      subsectionImages: ImageInterface[];
-    }[];
-  };
-};
-
-
-// --------------------------------------------------------------------
-//                            Component
-// --------------------------------------------------------------------
 function About({ data }: AboutProps) {
   // destructure data
   const { aboutPageText, gallery, heroImage, subsectionImages } = data.aboutPage[0];

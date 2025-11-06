@@ -1,35 +1,6 @@
 import Image from "next/image";
-import type { ImageInterface } from "@/interfaces/Interfaces";
+import type { EventsProps } from "@/interfaces/Interfaces";
 
-// --------------------------------------------------------------------
-//                            Interfaces
-// --------------------------------------------------------------------
-interface EventsProps {
-  data: {
-    eventsPage: {
-      heroImage: {
-        hero_image: ImageInterface;
-      };
-      heroText: {
-        page_title: string;
-        short_description: string;
-      };
-      upcomingEvents: {
-        event_name: string;
-        date: string;
-        description: string;
-        link: string | null;
-        location: string;
-        time: string;
-      }[];
-    }[];
-  };
-};
-
-
-// --------------------------------------------------------------------
-//                            Component
-// --------------------------------------------------------------------
 function Events({ data }: EventsProps) {
   // destructure hero information and get all upcoming events
   const { heroImage, heroText } = data.eventsPage[0];

@@ -1,24 +1,5 @@
-// --------------------------------------------------------------------
-//                            Interfaces
-// --------------------------------------------------------------------
-interface ContactProps {
-  data: {
-    contactPage: {
-      heroText: {
-        page_title: string;
-        short_description: string;
-      },
-      socials: {
-        href: string;
-        social_media: string;
-      }[]
-    }[]
-  }
-};
+import type { ContactProps } from "@/interfaces/Interfaces";
 
-// --------------------------------------------------------------------
-//                            Component
-// --------------------------------------------------------------------
 function Contact({ data }: ContactProps) {
   const { heroText, socials } = data.contactPage[0];
 

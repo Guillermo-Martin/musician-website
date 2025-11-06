@@ -2,38 +2,7 @@
 import Hero from "@/components/Hero";
 import Audio from "@/components/Audio";
 import Subsection from "@/components/Subsection";
-import type { ImageInterface } from "@/interfaces/Interfaces";
-
-// --------------------------------------------------------------------
-//                            Interfaces
-// --------------------------------------------------------------------
-interface CompositionsProps {
-  data: {
-    compositionsPage: {
-      heroImage: {
-        hero_image: ImageInterface
-      };
-      heroText: {
-        page_title: string;
-        short_description: string;
-      };
-      subsectionText: {
-        subsection1_description: string;
-        subsection1_title: string;
-      };
-      works: {
-        audio_file: {
-          asset: {
-            url: string;
-          }
-        };
-        date: string;
-        description: string;
-        title: string;
-      }[];
-    }[]
-  }
-};
+import type { CompositionsProps } from "@/interfaces/Interfaces";
 
 // --------------------------------------------------------------------
 //                            Component

@@ -1,44 +1,5 @@
 import Image from "next/image";
-import type { ImageInterface } from "@/interfaces/Interfaces";
-
-// --------------------------------------------------------------------
-//                            Interfaces
-// --------------------------------------------------------------------
-interface PianistProps {
-  data: {
-    pianistPage: {
-      heroImage: {
-        hero_image: ImageInterface;
-      };
-      heroText: {
-        page_title: string;
-        short_description: string;
-      };
-      cds: {
-        cd_image: ImageInterface;
-        songs: {
-          audio: {
-            asset: {
-              url: string;
-            };
-            title: string;
-            _key: string;
-          };
-          title: string;
-          _key: string;
-        }[];
-        title: string;
-        _key: string;
-      }[];
-      performances: {
-        title: string;
-        youtube_share_link: string;
-        _key: string;
-      }[];
-    }[];
-  };
-};
-
+import type { PianistProps } from "@/interfaces/Interfaces";
 
 function Pianist({ data }: PianistProps) {
   // destructure hero information
