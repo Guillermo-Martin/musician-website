@@ -10,7 +10,6 @@ function About({ data }: AboutProps) {
   // ---------- Gallery images ----------
   // for every image in the "gallery" array, create an "Image" component
   const galleryImages = gallery.map((image: ImageInterface) => {
-    // console.log("Image type", image)
     return <Image src={image.asset.url} alt={image.alt_text} key={image.asset.url} width={600} height={600} />
   });
 
@@ -57,7 +56,6 @@ function About({ data }: AboutProps) {
         {/* ----- Text container ----- */}
         <div>
           <h2>Gallery</h2>
-          {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus consequuntur nisi modi hic fugit dolor consequatur quia perferendis fugiat? Ab asperiores eaque nesciunt aut, fugiat delectus. Nesciunt et cumque quaerat?</p> */}
         </div>
 
         {/* ----- Image gallery ----- */}

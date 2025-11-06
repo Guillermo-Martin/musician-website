@@ -7,13 +7,15 @@ function Pianist({ data }: PianistProps) {
 
   // for each YouTube video, create an iframe
   const allVideos = performances.map(performance => {
-    // get the youtube video id from the share link
-    // 1. split the link by "https://youtu.be/"
-    //    - you'll get an array that looks like: ["https://youtu.be/", "1yfxp1NhLIs?si=TedHUzcuviVe9pM-"]
-    // 2. next, get the second half of the link (which is index 1)
-    // 3. split that string by "?".
-    //    - you'll get an array that looks like: ["1yfxp1NhLIs", "si=TedHUzcuviVe9pM-"]
-    //    - the string at index 0 is the video id
+    /**
+     * Gets the YouTube video id from the "share" link.
+     * 1. split the link by "https://youtu.be/"
+     *    - you'll get an array that looks like: ["https://youtu.be/", "1yfxp1NhLIs?si=TedHUzcuviVe9pM-"]
+     * 2. next, get the second half of the link (which is index 1)
+     * 3. split that string by "?".
+     *    - you'll get an array that looks like: ["1yfxp1NhLIs", "si=TedHUzcuviVe9pM-"]
+     *    - the string at index 0 is the video id
+     */
     const youTubeVideoId = performance.youtube_share_link.split("https://youtu.be/")[1].split("?")[0]
 
     // create the youtube embed link

@@ -3,7 +3,7 @@ import type { ContactProps } from "@/interfaces/Interfaces";
 function Contact({ data }: ContactProps) {
   const { heroText, socials } = data.contactPage[0];
 
-
+  // loop through all socials and create a link
   const allSocials = socials.map(social => {
     return (
       <div key={social.social_media}>

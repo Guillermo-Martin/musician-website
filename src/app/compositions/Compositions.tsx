@@ -1,4 +1,3 @@
-// import Image from "next/image";
 import Hero from "@/components/Hero";
 import Audio from "@/components/Audio";
 import Subsection from "@/components/Subsection";
@@ -9,10 +8,6 @@ import type { CompositionsProps } from "@/interfaces/Interfaces";
 // --------------------------------------------------------------------
 function Compositions({ data }: CompositionsProps) {
   const { heroImage, heroText, subsectionText, works } = data.compositionsPage[0]
-
-  // console.log("here's your data", data)
-
-  // console.log("hero", works)
 
   // loop through works and create a "works" section
   const allWorks = works.map(work => {
