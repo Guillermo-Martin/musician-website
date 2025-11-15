@@ -27,6 +27,13 @@ export interface Slug {
   link: string;
 };
 
+export interface NavbarSlug {
+  page_title: string;
+  slug: {
+    current: string;
+  };
+};
+
 // ---------- ImageInterface ----------
 export interface ImageInterface {
   alt_text: string;
