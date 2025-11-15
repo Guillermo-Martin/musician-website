@@ -36,3 +36,10 @@ h2 {
 h3 {
   @apply text-green-500 text-5xl;
 }
+
+main, footer, .navbar {
+  margin: 0 auto;
+  max-width: 1280px;
+  padding-left: 40px;
+  padding-right: 40px;
+}

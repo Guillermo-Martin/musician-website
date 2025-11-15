@@ -26,7 +26,7 @@ export default async function PublicLayout({ children }: { children: React.React
   return (
     <div className="public-layout">
       <Navbar links={allLinks} />
-        <main className="max-w-7xl px-20 mx-auto">{children}</main>
+        <main className="">{children}</main>
       <Footer />
     </div>
   );
