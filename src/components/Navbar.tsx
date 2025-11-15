@@ -25,6 +25,9 @@ function Navbar({ links }: NavbarProps) {
     };
   });
 
+  // swap the link positions using array destructuring
+  [filteredNavLinks[0], filteredNavLinks[1], filteredNavLinks[4], filteredNavLinks[5]] = [filteredNavLinks[1], filteredNavLinks[0], filteredNavLinks[5], filteredNavLinks[4]];
+
   // for every slug, in the "filteredNavLinks" array, create a link
   const navLinks = filteredNavLinks.map((slug: Slug) => {
     return (
