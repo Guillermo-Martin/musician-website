@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { defineQuery } from "next-sanity";
-import { sanityFetch } from "@/sanity/lib/live";
-import Navbar from "@/components/Navbar";
+// import { defineQuery } from "next-sanity";
+// import { sanityFetch } from "@/sanity/lib/live";
+// import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import "./globals.css";
 // ---------- Sanity ----------
@@ -24,26 +24,27 @@ export const metadata: Metadata = {
 };
 
 // sanity query to make navbar
-const NAVBAR_QUERY = defineQuery(`{'slugs': *[pageType == 'page']}`);
+// const NAVBAR_QUERY = defineQuery(`{'slugs': *[pageType == 'page']}`);
 
 
-
+// using a different layout for different app routes:  https://stackoverflow.com/questions/77806627/how-to-use-a-completely-different-layout-in-a-nested-component-in-nextjs-app-rou
+// using route groups:  https://nextjs.org/docs/app/api-reference/file-conventions/route-groups
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   // query sanity and get link data
-  const { data } = await sanityFetch({query: NAVBAR_QUERY});
+  // const { data } = await sanityFetch({query: NAVBAR_QUERY});
   // console.log("in the layout", data.slugs)
 
-  const allLinks = data.slugs.map(slug => {
-    // console.log(slug)
-    return {
-      pageTitle: slug.page_title,
-      link: slug.slug.current
-    };
-  });
+  // const allLinks = data.slugs.map(slug => {
+  //   // console.log(slug)
+  //   return {
+  //     pageTitle: slug.page_title,
+  //     link: slug.slug.current
+  //   };
+  // });
 
   // create an array with just he slugs
   // console.log(allLinks)
@@ -53,13 +54,13 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar links={allLinks} />
+        {/* <Navbar links={allLinks} /> */}
         {children}
 
         {/* ---------- Sanity ---------- */}
-        <SanityLive />
+        {/* <SanityLive /> */}
 
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );
