@@ -13,10 +13,9 @@ const NAVBAR_QUERY = defineQuery(`{'slugs': *[pageType == 'page']}`);
 export default async function PublicLayout({ children }: { children: React.ReactNode }) {
   // query sanity and get link data
   const { data } = await sanityFetch({query: NAVBAR_QUERY});
-  // console.log("in the layout", data.slugs)
 
+  // create all links for the navbar
   const allLinks = data.slugs.map(slug => {
-    // console.log(slug)
     return {
       pageTitle: slug.page_title,
       link: slug.slug.current
@@ -30,4 +29,4 @@ export default async function PublicLayout({ children }: { children: React.React
       <Footer />
     </div>
   );
-}
+};
