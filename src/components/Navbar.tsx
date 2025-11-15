@@ -36,9 +36,9 @@ function Navbar({ links }: NavbarProps) {
   });
 
   return (
-    <nav className={pathName === "/" ? "homepage" : "navbar"}>
-      <div><Link href="/">Home</Link></div>
-      <ul>
+    <nav className={pathName === "/" ? "homepage" : "navbar max-w-7xl px-20 mx-auto"}>
+      <div className="w-fit"><Link href="/">Home</Link></div>
+      <ul className="w-[80%] flex">
         {navLinks}
       </ul>
     </nav>
