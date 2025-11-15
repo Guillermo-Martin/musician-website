@@ -18,8 +18,15 @@ interface NavbarProps {
 function Navbar({ links }: NavbarProps) {
   const pathName = usePathname();
 
-  // for every slug, in the "links" array, create a link
-  const navLinks = links.map((slug: Slug) => {
+  // remove the "home" link
+  const filteredNavLinks = links.filter(link => {
+    if(link.pageTitle !== "Home"){
+      return link;
+    };
+  });
+
+  // for every slug, in the "filteredNavLinks" array, create a link
+  const navLinks = filteredNavLinks.map((slug: Slug) => {
     return (
       <li key={slug.pageTitle}><Link href={slug.link}>{slug.pageTitle}</Link></li>
     );
@@ -27,7 +34,10 @@ function Navbar({ links }: NavbarProps) {
 
   return (
     <nav className={pathName === "/" ? "homepage" : "navbar"}>
-      <ul>{navLinks}</ul>
+      <div><Link href="/">Home</Link></div>
+      <ul>
+        {navLinks}
+      </ul>
     </nav>
   );
 };
