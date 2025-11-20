@@ -15,6 +15,8 @@ interface NavbarProps {
 // --------------------------------------------------------------------
 //                            Component
 // --------------------------------------------------------------------
+const NAVBAR_STYLES = "navbar py-12 flex justify-between";
+
 function Navbar({ links }: NavbarProps) {
   const pathName = usePathname();
 
@@ -31,17 +33,18 @@ function Navbar({ links }: NavbarProps) {
   // for every slug, in the "filteredNavLinks" array, create a link
   const navLinks = filteredNavLinks.map((slug: Slug) => {
     return (
-      <li key={slug.pageTitle}><Link href={slug.link}>{slug.pageTitle}</Link></li>
+      <li key={slug.pageTitle}><Link href={slug.link} className="hover:underline">{slug.pageTitle}</Link></li>
     );
   });
 
   return (
-    <nav className={pathName === "/" ? "homepage" : "navbar"}>
-      <div className="w-fit"><Link href="/">Home</Link></div>
-      <ul className="w-[80%] flex">
+    <nav className={pathName === "/" ? "homepage" : NAVBAR_STYLES}>
+      <div className="w-fit"><Link href="/" className="hover:underline">Home</Link></div>
+      <ul className="w-[80%] flex justify-end gap-12">
         {navLinks}
       </ul>
     </nav>
+    
   );
 };
 
