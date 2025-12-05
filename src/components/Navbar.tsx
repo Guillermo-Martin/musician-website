@@ -12,6 +12,14 @@ interface NavbarProps {
   links: Slug[]
 };
 
+
+// --------------------------------------------------------------------
+//                            Functions
+// --------------------------------------------------------------------
+const handleClick = () => {
+  alert("You clicked the button!");
+};
+
 // --------------------------------------------------------------------
 //                            Component
 // --------------------------------------------------------------------
@@ -52,7 +60,7 @@ function Navbar({ links }: NavbarProps) {
       <nav className="navbar-mobile custom-md-nav:hidden">
         <div>
           {/* Hamburger icon: https://css-tricks.com/snippets/svg/svg-hamburger-menu/ */}
-          <svg viewBox="0 0 100 80" width="32" height="32">
+          <svg viewBox="0 0 80 80" width="32" height="32" onClick={handleClick}>
             <rect width="80" height="5"></rect>
             <rect y="30" width="80" height="5"></rect>
             <rect y="60" width="80" height="5"></rect>
