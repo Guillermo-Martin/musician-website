@@ -51,7 +51,12 @@ function Navbar({ links }: NavbarProps) {
       {/* at 640px and up, this is hidden */}
       <nav className="navbar-mobile custom-md-nav:hidden">
         <div>
-          <p>THIS IS THE MOBILE NAV!</p>
+          {/* Hamburger icon: https://css-tricks.com/snippets/svg/svg-hamburger-menu/ */}
+          <svg viewBox="0 0 100 80" width="32" height="32">
+            <rect width="80" height="5"></rect>
+            <rect y="30" width="80" height="5"></rect>
+            <rect y="60" width="80" height="5"></rect>
+          </svg>
         </div>
       </nav>
     </div>
