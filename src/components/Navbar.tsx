@@ -15,7 +15,8 @@ interface NavbarProps {
 // --------------------------------------------------------------------
 //                            Component
 // --------------------------------------------------------------------
-const NAVBAR_STYLES = "navbar py-12 flex justify-between";
+// const NAVBAR_STYLES = "navbar py-12 flex justify-between hidden sm:inline-block";
+const NAVBAR_STYLES = "navbar py-12 justify-between hidden custom-md-nav:flex";
 
 function Navbar({ links }: NavbarProps) {
   const pathName = usePathname();
@@ -38,14 +39,26 @@ function Navbar({ links }: NavbarProps) {
   });
 
   return (
-    <nav className={pathName === "/" ? "homepage" : NAVBAR_STYLES}>
-      <div className="w-fit"><Link href="/" className="hover:underline">Home</Link></div>
-      <ul className="w-[80%] flex justify-end gap-12">
-        {navLinks}
-      </ul>
-    </nav>
+    <div>
+      {/* at 640 and up this is visible */}
+      <nav className={pathName === "/" ? "homepage" : NAVBAR_STYLES}>
+        <div className="w-fit"><Link href="/" className="hover:underline">Home</Link></div>
+        <ul className="w-[80%] flex justify-end gap-12">
+          {navLinks}
+        </ul>
+      </nav>
+
+      {/* at 640px and up, this is hidden */}
+      <nav className="navbar-mobile custom-md-nav:hidden">
+        <div>
+          <p>THIS IS THE MOBILE NAV!</p>
+        </div>
+      </nav>
+    </div>
     
   );
 };
 
 export default Navbar;
+
+// TODO: ADD HAMBURGER MENU FUNCTIONALITY FOR MOBILE
