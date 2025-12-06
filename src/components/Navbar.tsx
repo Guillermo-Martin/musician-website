@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import type { Slug } from "@/interfaces/Interfaces";
 
 
@@ -28,6 +28,13 @@ function Navbar({ links }: NavbarProps) {
   const handleClick = () => {
     // toggle between showing and hiding the mobile nav
     setMobileLinks(!mobileLinks);
+
+    // if the mobile menu is open (mobileLinks === true), prevent the user from scrolling
+    if(!mobileLinks){
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    };
   };
 
   // remove the "home" link
