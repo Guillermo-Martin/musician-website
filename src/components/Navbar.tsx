@@ -58,8 +58,10 @@ function Navbar({ links }: NavbarProps) {
       </nav>
 
       {/* at 640px and up, this is hidden */}
-      <nav className="navbar-mobile custom-md-nav:hidden">
-        <div>
+      {/* <nav className="navbar-mobile py-12 custom-md-nav:hidden"> */}
+      {/* <nav className=""> */}
+        {/* <div className="flex justify-end relative"> */}
+        <div className="navbar-mobile py-12 custom-md-nav:hidden">
           {/* Hamburger icon: https://css-tricks.com/snippets/svg/svg-hamburger-menu/ */}
           <svg viewBox="0 0 80 80" width="32" height="32" onClick={handleClick}>
             <rect width="80" height="5"></rect>
@@ -72,13 +74,16 @@ function Navbar({ links }: NavbarProps) {
         {
           mobileLinks 
             ? 
-              <div className="mobile-links">
-                <p>links will go here</p>
-              </div>
+              <nav className="mobile-links-container absolute w-full bg-red-50">
+                <ul className="mobile-links navbar-mobile flex flex-col gap-4">
+                  <li><Link href="/" className="hover:underline">Home</Link></li>
+                  {navLinks}
+                </ul>
+              </nav>
             : 
               null
         }
-      </nav>
+      {/* </nav> */}
     </div>
   );
 };

@@ -2,6 +2,7 @@
 
 :root {
   --background: #ffffff;
+  /* --background: green; */
   --foreground: #171717;
 }
 
@@ -44,6 +45,11 @@ h3 {
 main, footer, .navbar {
   margin: 0 auto;
   max-width: 1280px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.navbar-mobile {
   padding-left: 40px;
   padding-right: 40px;
 }
