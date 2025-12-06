@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 import type { Slug } from "@/interfaces/Interfaces";
+
 
 // --------------------------------------------------------------------
 //                            Interfaces
@@ -12,14 +14,6 @@ interface NavbarProps {
   links: Slug[]
 };
 
-
-// --------------------------------------------------------------------
-//                            Functions
-// --------------------------------------------------------------------
-const handleClick = () => {
-  alert("You clicked the button!");
-};
-
 // --------------------------------------------------------------------
 //                            Component
 // --------------------------------------------------------------------
@@ -27,7 +21,14 @@ const handleClick = () => {
 const NAVBAR_STYLES = "navbar py-12 justify-between hidden custom-md-nav:flex";
 
 function Navbar({ links }: NavbarProps) {
+  const [ mobileLinks, setMobileLinks ] = useState(false);
   const pathName = usePathname();
+
+  // mobile nav
+  const handleClick = () => {
+    // toggle between showing and hiding the mobile nav
+    setMobileLinks(!mobileLinks);
+  };
 
   // remove the "home" link
   const filteredNavLinks = links.filter(link => {
@@ -66,9 +67,19 @@ function Navbar({ links }: NavbarProps) {
             <rect y="60" width="80" height="5"></rect>
           </svg>
         </div>
+
+        {/* Conditionally show all the mobile nav links */}
+        {
+          mobileLinks 
+            ? 
+              <div className="mobile-links">
+                <p>links will go here</p>
+              </div>
+            : 
+              null
+        }
       </nav>
     </div>
-    
   );
 };
 
