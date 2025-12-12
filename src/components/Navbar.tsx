@@ -50,7 +50,7 @@ function Navbar({ links }: NavbarProps) {
   // for every slug, in the "filteredNavLinks" array, create a link
   const navLinks = filteredNavLinks.map((slug: Slug) => {
     return (
-      <li key={slug.pageTitle}><Link href={slug.link} className="hover:underline">{slug.pageTitle}</Link></li>
+      <li key={slug.pageTitle}><Link href={slug.link} className="hover:underline" onClick={handleClick}>{slug.pageTitle}</Link></li>
     );
   });
 
@@ -98,3 +98,5 @@ function Navbar({ links }: NavbarProps) {
 export default Navbar;
 
 // TODO: ADD HAMBURGER MENU FUNCTIONALITY FOR MOBILE
+// - X losing the nav when the hamburger menu is closed
+// - get the hamburger menu to change to an X
