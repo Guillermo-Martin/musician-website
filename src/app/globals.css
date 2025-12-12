@@ -37,23 +37,25 @@ body {
   overflow: hidden;
 }
 
+/* use @apply to apply styles globally to those elements */
+
 h1 {
-  @apply text-red-700 text-8xl;
+  @apply text-red-700 text-lg;
 }
 
 h2 {
-  @apply text-blue-500 text-7xl;
+  @apply text-blue-500 text-lg;
 }
 
 h3 {
-  @apply text-green-500 text-5xl;
+  @apply text-green-500 text-lg;
 }
 
 main, footer, .navbar {
   margin: 0 auto;
   max-width: 1280px;
-  padding-left: 40px;
-  padding-right: 40px;
+  /* padding-left: 40px;
+  padding-right: 40px; */
 }
 
 .hamburger-icon {
@@ -79,8 +81,8 @@ main, footer, .navbar {
 }
 
 .navbar-mobile {
-  padding-left: 16px;
-  padding-right: 16px;
+  /* padding-left: 16px;
+  padding-right: 16px; */
   /* background-color: skyblue; */
 }
 
