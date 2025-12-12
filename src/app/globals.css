@@ -61,6 +61,23 @@ main, footer, .navbar {
   width: 20px;
 }
 
+/* Creating the close icon from the hamburger icon */
+.hamburger-icon rect {
+  transition: all 0.2s ease;
+}
+
+.hamburger-icon.open .top {
+  transform: rotate(45deg);
+}
+
+.hamburger-icon.open .middle {
+  opacity: 0;
+}
+
+.hamburger-icon.open .bottom {
+  transform: translateX(-60px) rotate(-45deg) translateY(22px);
+}
+
 .navbar-mobile {
   padding-left: 16px;
   padding-right: 16px;

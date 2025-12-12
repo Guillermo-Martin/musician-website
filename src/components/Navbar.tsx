@@ -22,12 +22,14 @@ const NAVBAR_STYLES = "navbar py-12 justify-between hidden custom-md-nav:flex";
 
 function Navbar({ links }: NavbarProps) {
   const [ mobileLinks, setMobileLinks ] = useState(false);
+  const [ closeIconShowing, setCloseIconShowing ] = useState(false)
   const pathName = usePathname();
 
   // mobile nav
   const handleClick = () => {
-    // toggle between showing and hiding the mobile nav
+    // toggle between showing and hiding the mobile nav and the hamburger icon and close icon
     setMobileLinks(!mobileLinks);
+    setCloseIconShowing(!closeIconShowing);
 
     // if the mobile menu is open (mobileLinks === true), prevent the user from scrolling
     if(!mobileLinks){
@@ -70,11 +72,12 @@ function Navbar({ links }: NavbarProps) {
         {/* <div className="flex justify-end relative"> */}
         <div className="navbar-mobile py-6 flex justify-end custom-md-nav:hidden">
           {/* Hamburger icon: https://css-tricks.com/snippets/svg/svg-hamburger-menu/ */}
-          <svg viewBox="0 0 80 80" width="32" height="32" className="hamburger-icon" onClick={handleClick}>
-            <rect width="80" height="5"></rect>
-            <rect y="30" width="80" height="5"></rect>
-            <rect y="60" width="80" height="5"></rect>
-          </svg>
+          {/* Close icon: if "closeIconShowing" is "true", add the "open" class */}
+          <svg viewBox="0 0 80 80" width="32" height="32" className={`hamburger-icon ${closeIconShowing ? "open" : ""}`} onClick={handleClick}>
+            <rect width="80" height="5" className="top"></rect>
+            <rect y="30" width="80" height="5" className="middle"></rect>
+            <rect y="60" width="80" height="5" className="bottom"></rect>
+          </svg>          
         </div>
 
         {/* Conditionally show all the mobile nav links */}
